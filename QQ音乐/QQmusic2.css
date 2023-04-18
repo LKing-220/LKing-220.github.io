@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?vtuz3k');
+    src: url('fonts/icomoon.eot?vtuz3k#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?vtuz3k') format('truetype'), url('fonts/icomoon.woff?vtuz3k') format('woff'), url('fonts/icomoon.svg?vtuz3k#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input {
+    border: 0;
+    outline: none;
+}
+
+a {
+    display: inline-table;
+    color: #000;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.shortcut>.w {
+    position: relative;
+    height: 90px;
+}
+
+.shortcut .logo {
+    position: absolute;
+    top: 22px;
+    height: 46px;
+    width: 170px;
+}
+
+.shortcut .logo a {
+    display: block;
+    height: 48px;
+    width: 175px;
+    font-size: 0;
+    background: url(images/logo.png) no-repeat;
+}
+
+.shortcut .nav ul {
+    position: absolute;
+    left: 180px;
+}
+
+.shortcut .nav ul li {
+    float: left;
+    height: 90px;
+    padding: 0 20px;
+    line-height: 90px;
+}
+
+a:hover {
+    color: #31c27c;
+}
+
+.elected {
+    background-color: #31c27c;
+}
+
+.elected a:hover {
+    color: #000;
+}
+
+.search {
+    position: absolute;
+    top: 25px;
+    right: 200px;
+    border-radius: 3px;
+}
+
+.search>input {
+    height: 30px;
+    width: 200px;
+    border-radius: 3px;
+    padding-left: 10px;
+    border-right: 2px solid rgba(0, 0, 0, .3);
+}
+
+.load {
+    position: absolute;
+    top: 30px;
+    right: 140px;
+    height: 30px;
+}
+
+.openvip {
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    height: 35px;
+    padding: 0 25px;
+    background-color: #31c27c;
+    border-radius: 2px;
+}
+
+.openvip a {
+    line-height: 35px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.body {
+    position: relative;
+    height: 622px;
+    width: auto;
+    margin: 0 auto;
+    background: url(images/bg.webp) no-repeat 50%;
+    background-size: cover;
+}
+
+.txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -600px;
+    width: 1200px;
+    height: 200px;
+}
+
+h1,
+h3 {
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h3 {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.nowload>a {
+    color: #fff;
+    font-size: 18px;
+}
+
+.nowload {
+    position: absolute;
+    left: 50%;
+    margin-left: -65px;
+    height: 50px;
+    padding: 0 25px;
+    margin-top: 25px;
+    background-color: #31c27c;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 50px;
+}
