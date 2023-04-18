@@ -1,0 +1,369 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none
+}
+
+body {
+    font-family: source-sans-pro, Source Sans Pro, Helvetica, Arial, sans-serif, sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #25382f;
+}
+
+.w {
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+
+/* header start */
+
+header {
+    height: 90px;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid #777;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+}
+
+.header-w {
+    height: 60px;
+    margin: 20px auto 10px;
+}
+
+.w h1 a {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    height: 32px;
+    line-height: 36px;
+}
+
+.w h1 a::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -60px;
+    width: 60px;
+    height: 60px;
+    background: url(../images/logo.svg) no-repeat;
+    background-size: 60px auto;
+}
+
+.nav {
+    float: right;
+    width: 800px;
+    padding-top: 17px;
+}
+
+.nav a {
+    float: left;
+    margin-left: 40px;
+    font-size: 16px;
+    padding: 4px 0;
+}
+
+.download a {
+    background: #09b39c;
+    padding: 4px 20px;
+    text-align: center;
+    border-bottom: #089b87 2px solid;
+    border-radius: 5px;
+    color: #fff;
+}
+
+
+/* main start */
+
+.main-one {
+    height: 375px;
+    background: #09b39c url(../images/background.svg) no-repeat;
+    background-position: 40% 50%;
+    background-size: 1600px 400px;
+    color: #fff;
+}
+
+.main-one .w {
+    max-width: 2000px;
+    height: 375px;
+    margin: 0 auto;
+}
+
+.main-one h2 {
+    font-size: 72px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.main-one h4 {
+    font-size: 30px;
+}
+
+.main-one img {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.main-one .w::after {
+    position: absolute;
+    bottom: -98px;
+    left: 0;
+    content: '';
+    border: 50px solid #09b39c;
+    border-color: #09b39c transparent transparent transparent;
+}
+
+.main-two {
+    height: 450px;
+}
+
+.main-two .w {
+    max-width: 2000px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.main-two .w .box {
+    position: absolute;
+    top: 75px;
+    right: 4%;
+    width: 700px;
+    max-width: 1000px;
+}
+
+.main-two .w .bg {
+    position: absolute;
+    left: -15%;
+    bottom: 50px;
+    height: 350px;
+    width: 350px;
+    background: url(../images/crocodile.jpg) no-repeat;
+    background-size: 350px;
+}
+
+.main-two h2 {
+    float: left;
+    width: 650px;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.main-two p {
+    float: right;
+    width: 700px;
+    font-weight: 300;
+    font-size: 18px;
+    color: #777;
+}
+
+.main-two .w::after {
+    position: absolute;
+    bottom: -98px;
+    right: 0;
+    content: '';
+    border: 50px solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.main-thr {
+    height: 600px;
+    background-color: #777;
+}
+
+.main-thr .w {
+    max-width: 2000px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.main-thr .w .box {
+    position: absolute;
+    top: 75px;
+    left: 4%;
+    width: 700px;
+    max-width: 1000px;
+}
+
+.main-thr h2 {
+    float: left;
+    width: 650px;
+    font-size: 38px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.main-thr p {
+    float: right;
+    width: 700px;
+    font-weight: 300;
+    font-size: 18px;
+    color: #fff;
+}
+
+.main-thr .w::after {
+    position: absolute;
+    bottom: -98px;
+    left: 0;
+    content: '';
+    border: 50px solid;
+    border-color: #777 transparent transparent transparent;
+}
+
+.main-four {
+    height: 1000px;
+    background-color: #333;
+}
+
+.main-four .w {
+    max-width: 2000px;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+.main-four .w h1 {
+    font-size: 40px;
+    font-weight: 300;
+    padding-top: 100px;
+    text-align: center;
+    color: #fff;
+}
+
+.main-four .w .box {
+    position: relative;
+    margin: 20px auto;
+    height: 700px;
+    width: 800px;
+    background-color: #bdbdbd;
+}
+
+.main-four .w .box img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.main-four .w p {
+    text-align: center;
+    font-weight: 300;
+    font-size: 22px;
+    color: #777;
+}
+
+.main-four .w p a {
+    color: #09b39c;
+}
+
+.main-five {
+    height: 400px;
+}
+
+.main-five .bg {
+    float: left;
+    width: 600px;
+    height: 400px;
+    background: url(../images/background_2.svg) no-repeat;
+    background-position: 130% 10px;
+    background-size: 1050px;
+}
+
+.main-five .w {
+    max-width: 2000px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.main-five .w h2 {
+    padding-top: 200px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.main-five .w h2 a {
+    background: #09b39c;
+    padding: 10px 20px;
+    font-size: 30px;
+    text-align: center;
+    border-bottom: #089b87 2px solid;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.footer {
+    height: 220px;
+}
+
+.footer .w {
+    height: 220px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.footer .w .logos ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer .w .logos ul li {
+    flex: 1;
+    padding-top: 30px;
+    height: 70px;
+    margin: 0 80px;
+    margin-right: 5px;
+}
+
+.footer .w .logos ul li a {
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+    margin-left: 50px;
+    background: url(../images/logo-twitter.svg) #777 no-repeat;
+    background-size: 70px;
+}
+
+.footer .w .logos ul li:nth-child(2) a {
+    background: url(../images/logo-github.svg) #777 no-repeat;
+    background-size: 70px;
+}
+
+.footer .w .logos ul li:nth-child(3) a {
+    background: url(../images/logo-google-groups.svg) #777 no-repeat;
+    background-size: 70px;
+}
+
+.footer .w .logos ul li:nth-child(4) a {
+    background: url(../images/logo-slack.svg) #777 no-repeat;
+}
+
+.footer .w .adobe {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -35px;
+    height: 80px;
+    width: 80px;
+    background: url(../images/logo-adobe.svg) #777 no-repeat;
+    background-size: 80px;
+}
