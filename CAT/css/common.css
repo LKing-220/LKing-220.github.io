@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.woff2?t=1681818985792') format('woff2'), url('../fonts/iconfont.woff?t=1681818985792') format('woff'), url('../fonts/iconfont.ttf?t=1681818985792') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #f2f3f5;
+    /* min-width: 1300px;
+    max-width: 20000px; */
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    background-color: transparent;
+}
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
+
+li {
+    list-style: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+em {
+    font-style: normal;
+}
+
+input {
+    outline: none;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+
+img {
+    border-style: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.w {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.wFixed {
+    position: fixed;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+}
+
+.inFixed {
+    position: relative;
+    min-width: 1280px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+i {
+    font-style: normal;
+}
+
+div {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

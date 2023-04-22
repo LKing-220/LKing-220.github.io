@@ -1,0 +1,112 @@
+.bodyHidden {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.bodyHidden::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 99;
+}
+
+#load {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #fff;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 199;
+    display: none;
+}
+
+#load em {
+    content: '×';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 100px;
+    background-color: #1e80ff;
+}
+
+#load div {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+
+#load i {
+    margin-left: 10px;
+    font-size: 20px;
+    color: #828282;
+}
+
+#load i:hover {
+    color: #1e80ff;
+}
+
+#load div:nth-child(3) {
+    width: 260px;
+    margin: 0 auto;
+}
+
+#load button {
+    height: 40px;
+    width: 80px;
+    border-radius: 4px;
+    margin: 0 20px;
+    border: 2px solid #1e80ff;
+    color: #1e80ff;
+    font-weight: 700;
+    background-color: rgba(30, 128, 255, .1);
+}
+
+#load button:hover {
+    background-color: rgba(0, 110, 255, 0.2);
+}
+
+#load input {
+    width: 300px;
+    height: 30px;
+    margin-left: 20px;
+    font-size: 16px;
+    border: 2px solid #828282;
+}
+
+
+/* loadSuccessful */
+
+#loadSuccessful {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 100px;
+    line-height: 100px;
+    color: #1e80ff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #fff;
+    box-shadow: 0 0 60px 20px #828282;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 200;
+}
