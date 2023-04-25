@@ -1,6 +1,6 @@
 function acquire() {
 
-    myOrother = document.querySelector('#myOrother');
+    userinfo = document.querySelector('#userinfo');
     modifyInformation = document.querySelector('#modify_information');
 
     nav = document.querySelector('nav');
@@ -8,4 +8,6 @@ function acquire() {
     mainEssays = document.querySelector('#main_middleEssays');
     main = document.querySelector('main');
     essay = document.querySelector('#essay');
+
+    addEssay = document.querySelector('#addEssay');
 }

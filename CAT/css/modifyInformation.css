@@ -129,6 +129,23 @@
     text-align: center;
 }
 
+#subImg input {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 120px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+#subImg img {
+    width: 80px;
+    height: 80px;
+    border-radius: 120px;
+}
+
 #subImg h4 {
     margin: 8px 0;
     color: #000;
@@ -138,10 +155,4 @@
 
 #subImg p {
     transform: scale(.9);
-}
-
-#subImg img {
-    width: 80px;
-    height: 80px;
-    border-radius: 120px;
 }

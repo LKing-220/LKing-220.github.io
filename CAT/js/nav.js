@@ -17,7 +17,7 @@ function navFn() {
     var lis = navUse.querySelectorAll('li');
     lis[0].addEventListener('click', function() {
         none();
-        myOrother.style.display = 'block';
+        userinfo.style.display = 'block';
         console.log(777);
     })
     lis[1].addEventListener('click', function() {

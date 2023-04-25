@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="../css/essay.css">
     <link rel="stylesheet" href="../css/load.css">
     <link rel="stylesheet" href="../css/modifyInformation.css">
-    <link rel="stylesheet" href="../css/myOrother.css">
+    <link rel="stylesheet" href="../css/userinfo.css">
+    <link rel="stylesheet" href="../css/addEssay.css">
     <script src="../js/xhr.js"></script>
     <script src="../js/index.js"></script>
 </head>
@@ -184,7 +185,54 @@
     <div id="loadSuccessful">
         登陆成功
     </div>
-    <div id="myOrother"></div>
+    <div id="userinfo" class="iconfont">
+        <div id="userinfo_right" class="right">
+            <div>
+                <span>关注了<br><i>123</i></span>
+                <span>关注者<br><i>123</i></span>
+            </div>
+            <ul>
+                <li>收藏夹<i>0</i></li>
+                <li>关注标签<i>0</i></li>
+                <li>加入于<i>0</i></li>
+            </ul>
+        </div>
+        <div id="userinfo_left" class="left">
+            <div id="userinfo_blurb">
+                <div id="userinfo_top">
+                    <img src="https://dummyimage.com/400x400" class="left">
+                    <div id="userinfo_my" class="right">
+                        <div class="my_logo">
+                            <a href="javascript:;">&#xe605;</a>
+                            <a href="javascript:;">&#xe606;</a>
+                            <a href="javascript:;">&#xe668;</a>
+                        </div>
+                        <button>编辑个人资料</button>
+                    </div>
+                    <div id="userinfo_other" class="right">
+                        <button><i class="iconfont">&#xe643;</i>关注</button>
+                        <button><i class="iconfont">&#xe60b;</i>私信</button>
+                    </div>
+                    <h2>name</h2>
+                    <p>324543</p>
+                </div>
+                <div id="userinfo_medal"><img src="../img/medal.png" alt="">获得徽章 <i>0</i><em class="right">&#xe6c6;</em></div>
+            </div>
+            <div id="userinfo_nav">
+                <ul>
+                    <li class="blueBottom">动态</li>
+                    <li>文章</li>
+                    <li>专栏</li>
+                    <li>沸点</li>
+                    <li>收藏集</li>
+                    <li>关注</li>
+                    <li>赞</li>
+                </ul>
+                <em class="right">&#xe60e;</em>
+            </div>
+            <div id="userinfo_list"></div>
+        </div>
+    </div>
     <div id="modify_information" class="iconfont w">
         <div id="information_return"><i>&#xe83d;</i>返回个人主页</div>
         <div id="information_left">
@@ -200,22 +248,68 @@
         <div id="information_right">
             <div id="information_form">
                 <h3>个人资料</h3>
-                <div><em>用户名</em><input type="text" placeholder="填写你的用户名"></div>
-                <div><em>职位</em><input type="text" placeholder="填写你的职位"></div>
-                <div><em>公司</em><input type="text" placeholder="填写你的公司"></div>
-                <div><em>个人主页</em><input type="text" placeholder="填写你的个人主页"></div>
+                <div><em>用户名</em><input type="text" placeholder="填写你的用户名（昵称）"></div>
+                <div><em>电话号码</em><input type="tel" placeholder="填写你的电话号码" maxlength="11"></div>
+                <div><em>邮箱</em><input type="email" placeholder="填写你的邮箱"></div>
                 <div><em>个人介绍</em><textarea name="" id="" cols="30" rows="10" placeholder="填写职业技能、擅长的事情、喜欢的事情等"></textarea></div>
                 <div><em></em><input type="submit" value="保存修改" id="submit"></div>
             </div>
             <div id="subImg">
-                <img src="../../前端/css基础/images/鬼王giegie.jpg" alt="">
+                <input type="file" id="uploadfile" accept="image/jpeg, image/jpg, image/png">
+                <label for="uploadfile"><img src="https://dummyimage.com/400x400" title="点击上传图片"></label>
                 <h4>我的头像</h4>
                 <p>支持 jpg、png、jpeg 格式大小 5M 以内的图片</p>
+
             </div>
         </div>
     </div>
     <div class="search"></div>
-    <div class="addEssay"></div>
+    <div id="addEssay" class="iconfont">
+        <div id="addessay_head">
+            <input type="text" id="addessay_header" placeholder="输入文章标题…">
+            <div class="right">
+                <e>文章将自动保存至草稿箱</e>
+                <button>草稿箱</button>
+                <button>发布</button>
+                <span>&#xe892;</span>
+                <img src="https://dummyimage.com/400x400" alt="">
+            </div>
+        </div>
+        <div id="addEssay_nav">
+            <ul class="left">
+                <li>&#xe6e2;</li>
+                <li>&#xe62c;</li>
+                <li>&#xec85;</li>
+                <li>&#xe853;</li>
+                <li>&#xe670;</li>
+                <li>&#xe652;</li>
+                <li>&#xe617;</li>
+                <li>&#xe607;</li>
+                <li>&#xe6af;</li>
+                <li>&#xeae3;</li>
+                <li>&#xe6f0;</li>
+                <li>&#xe6b2;</li>
+                <li>&#xe6ef;</li>
+                <li>&#xe667;</li>
+                <li>&#xec80;</li>
+                <li>&#xe654;</li>
+                <li>&#xe695;</li>
+                <li>&#xe621;</li>
+                <li>&#xe63a;</li>
+                <li>&#xe622;</li>
+            </ul>
+            <ul class="right">
+                <li>&#xe655;</li>
+                <li>&#xe616;</li>
+                <li>&#xe663;</li>
+                <li>&#xe623;l</li>
+                <li>l&#xe623;</li>
+                <li>&#xe7cf;</li>
+                <li>&#xe6b7;</li>
+            </ul>
+        </div>
+        <textarea id="addessay_body"></textarea>
+    </div>
     <script src="../js/acquire.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/load.js"></script>
@@ -223,6 +317,8 @@
     <script src="../js/essay.js"></script>
     <script src="../js/none.js"></script>
     <script src="../js/modifyInformation.js"></script>
+    <script src="../js/userinfo.js"></script>
+    <script src="../js/addEssay.js"></script>
 </body>
 
 </html>

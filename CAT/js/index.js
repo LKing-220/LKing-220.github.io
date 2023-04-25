@@ -1,5 +1,6 @@
 let userData = new Object;
-let userIsLogin = false;
+// let userIsLogin = false;
+let userIsLogin = true;
 let userDataPassword = null;
 let loadSuccessful = null;
 let body = null;
@@ -8,13 +9,15 @@ let essay = null;
 let nav = null;
 let myOrother = null;
 let modifyInformation = null;
-
+let addEssay = null;
 
 window.addEventListener('load', function() {
     let loadRight = document.querySelector('#load_right');
     body = document.querySelector('body');
     load = document.querySelector('#load');
     acquire();
+
+
 
     loadSuccessful = document.querySelector('#loadSuccessful');
     inputs = load.querySelectorAll('input');
