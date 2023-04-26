@@ -10,4 +10,6 @@ function acquire() {
     essay = document.querySelector('#essay');
 
     addEssay = document.querySelector('#addEssay');
+
+
 }

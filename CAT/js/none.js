@@ -3,4 +3,5 @@ function none() {
     essay.style.display = 'none';
     modifyInformation.style.display = 'none';
     userinfo.style.display = 'none';
+    addEssay.style.display = 'none';
 }

@@ -135,7 +135,7 @@ nav {
     top: 65px;
     right: 10px;
     width: 160px;
-    height: 100px;
+    height: 135px;
     padding: 15px;
     background-color: #fff;
     box-sizing: border-box;
@@ -146,6 +146,10 @@ nav {
 #nav_use li {
     line-height: 35px;
     font-size: 14px;
+    color: #000;
+}
+
+#nav_use li a {
     color: #000;
 }
 

@@ -18,6 +18,7 @@ function loadFn() {
         }
     })
     btns[0].addEventListener('click', function() {
+
         console.log('发送登录申请');
         var data = {
             password: "" + inputs[1].value + "",
@@ -29,9 +30,12 @@ function loadFn() {
             userDataPassword = inputs[1].value;
             userIsLogin = userData.data.isLogin;
             console.log(userData);
+            localStorage.setItem('userData', JSON.stringify(userData));
+            localStorage.setItem('userIsLogin', userData.data.isLogin);
             loadSusseful();
             navFn();
         });
+
 
     })
     btns[1].addEventListener('click', function() {

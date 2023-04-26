@@ -22,10 +22,10 @@
     <nav>
         <div class="nav">
             <div class="logo left">
-                <h1><a href="demo.html" title="稀土掘金">稀土掘金</a></h1>
+                <h1><a class="main" title="稀土掘金">稀土掘金</a></h1>
             </div>
             <div class="list left">
-                <span><a href="demo.html">首页</a></span>
+                <span><a class="main">首页</a></span>
                 <span>沸点<i>劳动权益</i></span>
                 <span>课程</span>
                 <span>直播</span>
@@ -44,6 +44,9 @@
                 <ul>
                     <li>个人主页</li>
                     <li>修改用户信息</li>
+                    <li>
+                        <a href="demo.html">退出登录</a>
+                    </li>
                 </ul>
             </div>
             <div class="vip right"><img src="../img/vip.svg" alt="vip">会员</div>
@@ -53,7 +56,7 @@
                         <input type="text" placeholder="搜索稀土掘金">
                         <div class="right iconfont">&#xe64f;</div>
                     </div>
-                    <button class="left">创作者中心</button>
+                    <button class="left" id="add">创作者中心</button>
                     <div class="creater left"></div>
                 </div>
             </div>
@@ -234,7 +237,7 @@
         </div>
     </div>
     <div id="modify_information" class="iconfont w">
-        <div id="information_return"><i>&#xe83d;</i>返回个人主页</div>
+        <div id="information_return"><span class="main"><i>&#xe83d;</i>返回个人主页</span></div>
         <div id="information_left">
             <ul>
                 <li><i>&#xe62b;</i>个人资料</li>
@@ -268,11 +271,18 @@
         <div id="addessay_head">
             <input type="text" id="addessay_header" placeholder="输入文章标题…">
             <div class="right">
-                <e>文章将自动保存至草稿箱</e>
+                <em>文章将自动保存至草稿箱</em>
                 <button>草稿箱</button>
                 <button>发布</button>
                 <span>&#xe892;</span>
-                <img src="https://dummyimage.com/400x400" alt="">
+                <span class="user">
+                    <img src="https://dummyimage.com/400x400" alt="">
+                    <ul>
+                        <li>我的主页</li>
+                        <li>我喜欢的</li>
+                        <li>我的收藏集</li>
+                    </ul>
+                </span>
             </div>
         </div>
         <div id="addEssay_nav">

@@ -1,6 +1,14 @@
+var temp = localStorage.getItem('userData');
 let userData = new Object;
-// let userIsLogin = false;
-let userIsLogin = true;
+let userIsLogin = (localStorage.getItem('userIsLogin') == 'true') ? true : false;
+console.log(userIsLogin);
+if (userIsLogin) {
+
+    userData = JSON.parse(temp);
+} else {
+
+    console.log('未登录');
+}
 let userDataPassword = null;
 let loadSuccessful = null;
 let body = null;
@@ -16,7 +24,7 @@ window.addEventListener('load', function() {
     body = document.querySelector('body');
     load = document.querySelector('#load');
     acquire();
-
+    navFn()
 
 
     loadSuccessful = document.querySelector('#loadSuccessful');
@@ -26,8 +34,8 @@ window.addEventListener('load', function() {
     mainFn();
     essayFn();
     //点击登录按钮，转跳到登录界面
+
     loadRight.addEventListener('click', function() {
-        console.log(userData);
         if (Object.getOwnPropertyNames(userData).length == 0) {
             loadFn()
         }
