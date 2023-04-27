@@ -1,0 +1,265 @@
+#addEssay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+#addessay_head {
+    height: 64px;
+    line-height: 64px;
+    padding: 0 30px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+#addessay_header {
+    width: 45%;
+    height: calc(100% - 2px);
+    font-size: 24px;
+}
+
+#addessay_head em {
+    color: #828282;
+    font-size: 12px;
+    font-weight: 100
+}
+
+#addessay_head button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #1e80ff;
+    border-radius: 2px;
+    color: #1e80ff;
+    background-color: #fff;
+}
+
+#addessay_head button:nth-child(3) {
+    color: #fff;
+    background-color: #1e80ff;
+}
+
+#addessay_head button:nth-child(3):hover {
+    background-color: #4896fd;
+}
+
+#addessay_head span {
+    margin: 0 10px;
+}
+
+#addessay_head img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    vertical-align: middle;
+}
+
+#addessay_head .user {
+    position: relative;
+    display: inline-block;
+    height: 60px;
+}
+
+#addessay_head .user:hover ul {
+    display: block;
+}
+
+#addessay_head ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: -30px;
+    width: 130px;
+    height: 90px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px 5px #cdcdcd;
+}
+
+#addessay_head li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+#addessay_head li:hover {
+    color: #1e80ff;
+}
+
+#addEssay_nav {
+    width: 100%;
+    height: auto;
+    padding: 0 30px;
+    border-bottom: 1px solid #cdcdcd;
+    overflow: hidden;
+}
+
+
+/* 
+#addEssay_nav:after,
+#addEssay_nav:before {
+    content: "";
+    display: table;
+}
+
+#addEssay_nav:after {
+    clear: both;
+}
+
+#addEssay_nav {
+    *zoom: 1;
+} */
+
+#addEssay_nav ul {
+    display: flex;
+    height: 32px;
+    line-height: 24px;
+    padding: 4px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#addEssay_nav li {
+    flex: 1;
+    width: 24px;
+    color: #000;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#addEssay_nav li:hover {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+#addessay_body {
+    width: calc(100% - 60px);
+    height: calc(100% - 147px);
+    padding: 8px 30px;
+    font-size: 14px;
+    resize: none;
+}
+
+#publish {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 460px;
+    height: 460px;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 2px #cdcdcd;
+}
+
+#publish h4 {
+    line-height: 30px;
+    font-weight: 400;
+    padding: 0 20px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+#publish em {
+    color: red;
+}
+
+#publish table button {
+    float: left;
+    width: 75px;
+    height: 20px;
+    margin: 3px;
+}
+
+#publish table {
+    padding: 10px 20px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+#publish td {
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+#publish tr td:first-child {
+    width: 70px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#publish p,
+#publish span {
+    font-size: 12px;
+    color: #828282;
+}
+
+#publish input {
+    display: none;
+}
+
+#publish span {
+    display: inline-block;
+    width: 130px;
+    height: 73px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #cdcdcd;
+    font-size: 14px;
+}
+
+#publish span i {
+    display: block;
+    height: 14px;
+}
+
+#publish textarea {
+    width: 270px;
+    height: 100px;
+    padding: 8px;
+    font-weight: 700;
+    resize: none;
+    border: 1px solid #cdcdcd;
+}
+
+#publish_sure {
+    float: right;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+#publish_sure button {
+    padding: 8px 30px;
+    border: 1px solid #1e80ff;
+    border-radius: 3px;
+    margin: 0 8px;
+    color: #1e80ff;
+    background-color: #fff;
+}
+
+#publish_sure button:last-child {
+    padding: 8px;
+    color: #fff;
+    background-color: #1e80ff;
+}
+
+#publish_sure button:last-child:hover {
+    background-color: #4896fd;
+}
+
+#addEssaySuccessful {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 100px;
+    line-height: 100px;
+    color: #1e80ff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: #fff;
+    box-shadow: 0 0 60px 20px #828282;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 200;
+}

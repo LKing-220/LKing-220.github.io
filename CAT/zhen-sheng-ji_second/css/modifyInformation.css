@@ -1,0 +1,158 @@
+#modify_information {
+    display: none;
+    position: relative;
+    top: 80px;
+}
+
+#modify_information i {
+    margin: 0 15px;
+}
+
+#information_return {
+    width: 100%;
+    height: 46px;
+    line-height: 26px;
+    margin-bottom: 15px;
+    padding: 10px 8px;
+    border-bottom: 1px solid #cdcdcd;
+    color: #828282;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+#information_return:hover {
+    color: #1e80ff;
+}
+
+#information_left {
+    float: left;
+    width: 230px;
+    height: 626px;
+    padding: 8px;
+    color: #828282;
+    background-color: #fff;
+}
+
+#information_left ul {
+    width: 100%;
+}
+
+#information_left li {
+    float: left;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#information_left li:hover {
+    color: #1e80ff;
+    background-color: rgba(30, 128, 255, .1);
+}
+
+#information_right {
+    position: relative;
+    float: right;
+    width: 946px;
+    height: 626px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+#information_form {
+    float: left;
+    width: 580px;
+}
+
+#information_form h3 {
+    margin-bottom: 20px;
+}
+
+#information_form div {
+    padding: 12px;
+    border-top: 1px solid #e0e0e0;
+}
+
+#information_form em {
+    float: left;
+    width: 90px;
+    height: 13px;
+    line-height: 36px;
+    font-size: 13px;
+}
+
+#information_form input,
+#information_form textarea {
+    width: calc(100% - 130px);
+    padding: 4px 8px;
+    border: 1px solid #cdcdcd;
+    border-radius: 2px;
+    background-color: #f3f3f3;
+    transition: all .3s ease-out;
+}
+
+#information_form input:hover,
+#information_form textarea:hover {
+    background-color: #cdcdcd;
+}
+
+#information_form input {
+    height: 20px;
+}
+
+#information_form textarea {
+    outline: none;
+}
+
+#information_form #submit {
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #1e80ff;
+}
+
+#information_form #submit:hover {
+    background-color: #4293fd;
+}
+
+#subImg {
+    position: absolute;
+    top: 80px;
+    right: 160px;
+    width: 100px;
+    color: #828282;
+    font-size: 12px;
+    text-align: center;
+}
+
+#subImg input {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 120px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+#subImg img {
+    width: 80px;
+    height: 80px;
+    border-radius: 120px;
+}
+
+#subImg h4 {
+    margin: 8px 0;
+    color: #000;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+#subImg p {
+    transform: scale(.9);
+}
