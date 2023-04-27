@@ -7,10 +7,9 @@ function mainFn() {
     function mainContent() {
 
         ajax("GET", "article/list/page?page=1&pageSize=10", 0, 0, function() {
-            console.log(ret);
+            console.log('获取文章');
             var datas = ret.data.records;
             for (var i = 0; i < datas.length; i++) {
-                console.log(datas[i]);
                 var div = document.createElement('div');
                 div.className = 'main_essay';
                 if (datas[i].img == null) {

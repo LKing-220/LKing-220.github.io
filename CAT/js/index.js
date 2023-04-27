@@ -1,24 +1,16 @@
-var temp = localStorage.getItem('userData');
 let userData = new Object;
+let userDatas = new Object;
+var temp = localStorage.getItem('userData');
 let userIsLogin = (localStorage.getItem('userIsLogin') == 'true') ? true : false;
 console.log(userIsLogin);
 if (userIsLogin) {
 
     userData = JSON.parse(temp);
+    console.log(userData);
 } else {
 
     console.log('未登录');
 }
-let userDataPassword = null;
-let loadSuccessful = null;
-let body = null;
-let load = null;
-let essay = null;
-let nav = null;
-let myOrother = null;
-let modifyInformation = null;
-let addEssay = null;
-
 window.addEventListener('load', function() {
     let loadRight = document.querySelector('#load_right');
     body = document.querySelector('body');

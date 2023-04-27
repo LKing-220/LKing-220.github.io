@@ -38,7 +38,7 @@ function essayFn() {
             essayUser.querySelector('img').src = datas.img;
             essayUser.children[1].innerHTML = datas.nickname;
 
-            main.style.display = 'none';
+            none();
             essay.style.display = 'block';
         });
 

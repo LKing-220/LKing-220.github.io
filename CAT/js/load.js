@@ -1,3 +1,5 @@
+let loadFnSending = false;
+
 function loadFn() {
     load.style.display = 'flex'
     body.className = 'bodyHidden';
@@ -19,41 +21,48 @@ function loadFn() {
     })
     btns[0].addEventListener('click', function() {
 
-        console.log('发送登录申请');
-        var data = {
-            password: "" + inputs[1].value + "",
-            username: "" + inputs[0].value + ""
-        };
+        if (loadFnSending == false) {
+            loadFnSending = true;
+            console.log('发送登录申请');
+            var data = {
+                password: "" + inputs[1].value + "",
+                username: "" + inputs[0].value + ""
+            };
 
-        ajax("POST", "user/doLogin", data, 1, function() {
-            userData = ret;
-            userDataPassword = inputs[1].value;
-            userIsLogin = userData.data.isLogin;
-            console.log(userData);
-            localStorage.setItem('userData', JSON.stringify(userData));
-            localStorage.setItem('userIsLogin', userData.data.isLogin);
-            loadSusseful();
-            navFn();
-        });
+            ajax("POST", "user/doLogin", data, 1, function() {
+                loadFnSending = false;
+                userData = ret;
+                console.log(userData);
+                userDataPassword = inputs[1].value;
+                userIsLogin = userData.data.isLogin;
+                localStorage.setItem('userData', JSON.stringify(userData));
+                localStorage.setItem('userIsLogin', userData.data.isLogin);
+                loadSusseful();
+                navFn();
+            });
+        }
 
 
     })
     btns[1].addEventListener('click', function() {
-        console.log('发送注册申请');
+        if (loadFnSending == false) {
+            loadFnSending = true;
+            console.log('发送注册申请');
 
-        var data = {
-            password: "" + inputs[1].value + "",
-            username: "" + inputs[0].value + ""
-        };
+            var data = {
+                password: "" + inputs[1].value + "",
+                username: "" + inputs[0].value + ""
+            };
 
 
-        ajax("POST", "user/register", data, 1, function() {
-            console.log(ret);
-            if (ret.msg)
-                alert(ret.msg);
-            else
-                alert(ret.data + '请点击登录按钮即可登录');
-        });
+            ajax("POST", "user/register", data, 1, function() {
+                loadFnSending = false;
+                if (ret.msg)
+                    alert(ret.msg);
+                else
+                    alert(ret.data + '请点击登录按钮即可登录');
+            });
+        }
 
     })
 

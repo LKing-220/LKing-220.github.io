@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/essay.css">
     <link rel="stylesheet" href="../css/load.css">
-    <link rel="stylesheet" href="../css/modifyInformation.css">
-    <link rel="stylesheet" href="../css/userinfo.css">
+    <link rel="stylesheet" href="../css/modifyinfor.css">
+    <link rel="stylesheet" href="../css/userinfor.css">
     <link rel="stylesheet" href="../css/addEssay.css">
-    <script src="../js/xhr.js"></script>
+    <script src="../js/variables.js"></script>
+    <script src="../js/userinfor.js"></script>
     <script src="../js/index.js"></script>
 </head>
 
@@ -188,8 +189,8 @@
     <div id="loadSuccessful">
         登陆成功
     </div>
-    <div id="userinfo" class="iconfont">
-        <div id="userinfo_right" class="right">
+    <div id="userinfor" class="iconfont">
+        <div id="userinfor_right" class="right">
             <div>
                 <span>关注了<br><i>123</i></span>
                 <span>关注者<br><i>123</i></span>
@@ -200,28 +201,28 @@
                 <li>加入于<i>0</i></li>
             </ul>
         </div>
-        <div id="userinfo_left" class="left">
-            <div id="userinfo_blurb">
-                <div id="userinfo_top">
+        <div id="userinfor_left" class="left">
+            <div id="userinfor_blurb">
+                <div id="userinfor_top">
                     <img src="https://dummyimage.com/400x400" class="left">
-                    <div id="userinfo_my" class="right">
+                    <div id="userinfor_my" class="right">
                         <div class="my_logo">
                             <a href="javascript:;">&#xe605;</a>
                             <a href="javascript:;">&#xe606;</a>
                             <a href="javascript:;">&#xe668;</a>
                         </div>
-                        <button>编辑个人资料</button>
+                        <button class="userinfor">编辑个人资料</button>
                     </div>
-                    <div id="userinfo_other" class="right">
+                    <div id="userinfor_other" class="right">
                         <button><i class="iconfont">&#xe643;</i>关注</button>
                         <button><i class="iconfont">&#xe60b;</i>私信</button>
                     </div>
                     <h2>name</h2>
-                    <p>324543</p>
+                    <p>*******</p>
                 </div>
-                <div id="userinfo_medal"><img src="../img/medal.png" alt="">获得徽章 <i>0</i><em class="right">&#xe6c6;</em></div>
+                <div id="userinfor_medal"><img src="../img/medal.png" alt="">获得徽章 <i>0</i><em class="right">&#xe6c6;</em></div>
             </div>
-            <div id="userinfo_nav">
+            <div id="userinfor_nav">
                 <ul>
                     <li class="blueBottom">动态</li>
                     <li>文章</li>
@@ -233,12 +234,12 @@
                 </ul>
                 <em class="right">&#xe60e;</em>
             </div>
-            <div id="userinfo_list"></div>
+            <div id="userinfor_list"></div>
         </div>
     </div>
-    <div id="modify_information" class="iconfont w">
-        <div id="information_return"><span class="main"><i>&#xe83d;</i>返回个人主页</span></div>
-        <div id="information_left">
+    <div id="modify_infor" class="iconfont w">
+        <div id="infor_return"><span class="main"><i>&#xe83d;</i>返回个人主页</span></div>
+        <div id="infor_left">
             <ul>
                 <li><i>&#xe62b;</i>个人资料</li>
                 <li><i>&#xe675;</i>账号设置</li>
@@ -248,21 +249,20 @@
                 <li><i>&#xe60a;</i>标签管理</li>
             </ul>
         </div>
-        <div id="information_right">
-            <div id="information_form">
+        <div id="infor_right">
+            <div id="infor_form">
                 <h3>个人资料</h3>
-                <div><em>用户名</em><input type="text" placeholder="填写你的用户名（昵称）"></div>
-                <div><em>电话号码</em><input type="tel" placeholder="填写你的电话号码" maxlength="11"></div>
-                <div><em>邮箱</em><input type="email" placeholder="填写你的邮箱"></div>
-                <div><em>个人介绍</em><textarea name="" id="" cols="30" rows="10" placeholder="填写职业技能、擅长的事情、喜欢的事情等"></textarea></div>
-                <div><em></em><input type="submit" value="保存修改" id="submit"></div>
+                <div><em>用户名</em><input type="text" placeholder="填写你的用户名（昵称）" class="inform"></div>
+                <div><em>电话号码</em><input type="tel" placeholder="填写你的电话号码" maxlength="11" class="inform"></div>
+                <div><em>邮箱</em><input type="email" placeholder="填写你的邮箱" class="inform"></div>
+                <div><em>个人介绍</em><textarea name="" id="introduction" cols="30" rows="10" placeholder="填写职业技能、擅长的事情、喜欢的事情等" class="inform"></textarea></div>
+                <div><em></em><input type="submit" value="保存修改" id="submitUser"></div>
             </div>
             <div id="subImg">
                 <input type="file" id="uploadfile" accept="image/jpeg, image/jpg, image/png">
-                <label for="uploadfile"><img src="https://dummyimage.com/400x400" title="点击上传图片"></label>
+                <label for="uploadfile"><img src="https://dummyimage.com/400x400" class="inform" title="点击上传图片"></label>
                 <h4>我的头像</h4>
                 <p>支持 jpg、png、jpeg 格式大小 5M 以内的图片</p>
-
             </div>
         </div>
     </div>
@@ -273,7 +273,7 @@
             <div class="right">
                 <em>文章将自动保存至草稿箱</em>
                 <button>草稿箱</button>
-                <button>发布</button>
+                <button class="publish">发布</button>
                 <span>&#xe892;</span>
                 <span class="user">
                     <img src="https://dummyimage.com/400x400" alt="">
@@ -319,15 +319,41 @@
             </ul>
         </div>
         <textarea id="addessay_body"></textarea>
+        <div id="publish">
+            <h4>发布文章</h4>
+            <table>
+                <tr>
+                    <td><em>*</em>分类：</td>
+                    <td><button class="category">后端</button><button class="category">前端</button><button class="category">Android</button><button class="category">iOs</button><button class="category">人工智能</button><button class="category">开发工具</button>
+                        <button class="category">代码人生</button>
+                        <button class="category">阅读</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><em>*</em>文章封面</td>
+                    <td>
+                        <input type="file" id="publishfile" accept="image/jpeg, image/jpg, image/png">
+                        <label for="publishfile"><span><i>&#xe659;</i>上传封面</span></label>
+                        <p>建议尺寸: 1303*734px</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><em>*</em>编辑摘要</td>
+                    <td>
+                        <textarea id="abstract"></textarea></td>
+                </tr>
+            </table>
+            <div id="publish_sure"><button>取消</button><button>确定并发布</button></div>
+        </div>
     </div>
-    <script src="../js/acquire.js"></script>
+    <div id="addEssaySuccessful">发布成功</div>
+    <script src="../js/functions.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/load.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/essay.js"></script>
-    <script src="../js/none.js"></script>
-    <script src="../js/modifyInformation.js"></script>
-    <script src="../js/userinfo.js"></script>
+    <script src="../js/modifyinfor.js"></script>
+    <script src="../js/userinfor.js"></script>
     <script src="../js/addEssay.js"></script>
 </body>
 
