@@ -1,5 +1,16 @@
 var submitUser = document.querySelector('#submitUser');
+var modifies = document.querySelectorAll('.modify');
+for (var i = 0; i < modifies.length; i++) {
+    modifies[i].addEventListener('click', function() {
 
+        //转跳修改用户信息页面
+        none();
+        nav.style.display = 'block';
+        modifyinfor.style.display = 'block';
+        document.querySelector('#subImg').querySelector('img').src = userDatas.avator;
+        document.querySelector('#infor_form').children[1].querySelector('input').value = userDatas.nickname;
+    })
+}
 submitUser.addEventListener('click', function() {
 
     var inform = document.querySelector('#infor_right').querySelectorAll('.inform');

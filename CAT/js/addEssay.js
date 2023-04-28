@@ -21,14 +21,6 @@ window.addEventListener('load', function() {
             addEssay.querySelector('#addessay_head').style.overflow = '';
         }
     }
-    var lis = addEssay.querySelector('.user').querySelectorAll('li');
-    for (var i = 0; i < lis.length; i++)
-        lis[i].addEventListener('click', function() {
-            none();
-            nav.style.display = 'block';
-            userinfor.style.display = 'block';
-        })
-
 
     var openPublish = this.document.querySelector('.publish');
     var publish = this.document.querySelector('#publish');

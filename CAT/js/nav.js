@@ -18,26 +18,7 @@ function navFn() {
 
     //页面跳转
     var lis = navUse.querySelectorAll('li');
-    lis[0].addEventListener('click', function() {
-        //转跳用户主页
-        none();
-        nav.style.display = 'block';
-        userinfor.style.display = 'block';
-        var obj = document.querySelector('#userinfor_top')
-        userinforMy.style.display = 'block';
-        obj.children[0].src = userDatas.avator;
-        obj.querySelector('h2').innerHTML = userDatas.nickname;
 
-    })
-    lis[1].addEventListener('click', function() {
-        //转跳修改用户信息页面
-        none();
-        nav.style.display = 'block';
-        modifyinfor.style.display = 'block';
-        document.querySelector('#subImg').querySelector('img').src = userDatas.avator;
-        document.querySelector('#infor_form').children[1].querySelector('input').value = userDatas.nickname;
-
-    })
     lis[2].addEventListener('click', function() {
         console.log('退出登录');
         localStorage.setItem('userData', '');
@@ -58,6 +39,9 @@ function navFn() {
     for (var i = 0; i < retmain.length; i++)
         retmain[i].addEventListener('click', function() {
             none();
+            console.clear();
+            mainFn()
+            mainEssays.innerHTML = '';
             main.style.display = 'block';
             nav.style.display = 'block';
         })

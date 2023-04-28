@@ -32,6 +32,7 @@ function loadFn() {
             ajax("POST", "user/doLogin", data, 1, function() {
                 loadFnSending = false;
                 userData = ret;
+                tokenValue = userData.data.tokenValue;
                 console.log(userData);
                 userDataPassword = inputs[1].value;
                 userIsLogin = userData.data.isLogin;
