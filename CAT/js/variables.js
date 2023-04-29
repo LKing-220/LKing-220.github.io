@@ -1,4 +1,3 @@
-let userDataPassword = null;
 let loadSuccessful = null;
 let body = null;
 let load = null;
@@ -8,3 +7,4 @@ let myOrother = null;
 let modifyInfor = null;
 let addEssay = null;
 let userinforeMy = null;
+let search = null;

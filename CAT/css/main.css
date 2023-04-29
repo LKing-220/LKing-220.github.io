@@ -208,7 +208,7 @@ main .inFixed {
     height: 48px;
     line-height: 24px;
     padding: 12px 20px;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #cdcdcd;
     color: #828282;
 }
 
@@ -260,8 +260,8 @@ main .inFixed {
 .main_essayImg {
     position: absolute;
     bottom: 12px;
-    right: 0;
-    width: 120px;
+    right: 20px;
+    /* width: 120px; */
     height: 80px;
 }
 
@@ -270,7 +270,7 @@ main .inFixed {
     color: #585858;
     font-size: 16px;
     line-height: 16px;
-    border-left: 1px solid #828282;
+    border-left: 1px solid #cdcdcd;
 }
 
 .main_essay .main_writer {

@@ -36,6 +36,7 @@ function loadFn() {
                 console.log(userData);
                 userDataPassword = inputs[1].value;
                 userIsLogin = userData.data.isLogin;
+                localStorage.setItem('userDataPassword', userDataPassword)
                 localStorage.setItem('userData', JSON.stringify(userData));
                 localStorage.setItem('userIsLogin', userData.data.isLogin);
                 loadSusseful();

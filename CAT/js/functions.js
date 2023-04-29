@@ -65,6 +65,7 @@ function none() {
     userinfor.style.display = 'none';
     addEssay.style.display = 'none';
     userinforMy.style.display = 'none';
+    search.style.display = 'none';
 }
 
 //获取元素函数
@@ -81,5 +82,25 @@ function acquire() {
 
     addEssay = document.querySelector('#addEssay');
     userinforMy = document.querySelector('#userinfor_my');
+    search = document.querySelector('#search');
 
 }
+
+
+//判断是否关注了该用户
+function followJudge(id, obj) {
+    ajax("GET", "follow/or/not?id=" + id + "&satoken=" + tokenValue, 0, 0,
+        function() {
+            console.log(id);
+            console.log(ret);
+            if (ret.data) {
+                isFollow = 0;
+                obj.innerHTML = '已关注';
+                obj.style.backgroundColor = '#cdcdcd';
+            } else {
+                isFollow = 1;
+                obj.innerHTML = '关注';
+                obj.style.backgroundColor = '';
+            }
+        })
+};

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../css/modifyInfor.css">
     <link rel="stylesheet" href="../css/userInfor.css">
     <link rel="stylesheet" href="../css/addEssay.css">
+    <link rel="stylesheet" href="../css/search.css">
     <script src="../js/variables.js"></script>
     <script src="../js/index.js"></script>
 </head>
@@ -143,21 +144,21 @@
         <div class="wFixed">
             <div class="inFixed">
                 <div id="essay_left">
-                    <span class="like">&#xe61c;<i></i></span>
+                    <span class="essay_like">&#xe61c;<i></i></span>
                     <span>&#xe634;<i></i></span>
-                    <span class="collecte">&#xe86d;<i></i></span>
-                    <span>&#xe633;<i></i></span>
+                    <span class="essay_collecte">&#xe86d;<i></i></span>
+                    <span class="essay_share">&#xe633;<i></i></span>
                     <span>&#xe601;</span>
                     <span>&#xe68b;</span>
                 </div>
             </div>
         </div>
         <div id="essay_right">
-            <div id="essay_user">
+            <div id="essay_user" class="otherInfo">
                 <div id="essay_userImg">
                     <img src="" alt="">
                 </div>
-                <div id="essay_userName"></div>
+                <div id="essay_userName" for="essay_userImg"></div>
                 <div id="essay_follow">
                     <button>关注</button><button>私信</button>
                 </div>
@@ -181,7 +182,7 @@
     </div>
     <div id="load" class="iconfont">
         <div>请输入账号<input type="text" placeholder=""></div>
-        <div>请输入密码<input type="password"><i>&#xe69e;</i></div>
+        <div>请输入密码<input type="password" maxlength="16"><i>&#xe69e;</i></div>
         <div><button>登录</button><button>注册</button></div>
         <em>×</em>
     </div>
@@ -216,8 +217,8 @@
                         <button><i class="iconfont">&#xe643;</i>关注</button>
                         <button><i class="iconfont">&#xe60b;</i>私信</button>
                     </div>
-                    <h2>name</h2>
-                    <p>*******</p>
+                    <h2></h2>
+                    <p>***********</p>
                 </div>
                 <div id="userinfor_medal"><img src="../img/medal.png" alt="">获得徽章 <i>0</i><em class="right">&#xe6c6;</em></div>
             </div>
@@ -241,7 +242,7 @@
         <div id="infor_left">
             <ul>
                 <li><i>&#xe62b;</i>个人资料</li>
-                <li><i>&#xe675;</i>账号设置</li>
+                <li id="changePwd"><i>&#xe675;</i>账号设置</li>
                 <li><i>&#xe604;</i>消息设置</li>
                 <li><i>&#xe651;</i>简历管理</li>
                 <li><i>&#xe7d5;</i>屏蔽管理</li>
@@ -264,8 +265,34 @@
                 <p>支持 jpg、png、jpeg 格式大小 5M 以内的图片</p>
             </div>
         </div>
+        <div id="changePwd_win">
+            <div>请输入旧密码<input type="password" maxlength="16"><i>&#xe69e;</i>
+                <p></p>
+            </div>
+            <div>请输入新密码<input type="password" maxlength="16"><i>&#xe69e;</i>
+                <p></p>
+            </div>
+            <div>请确认新密码<input type="password" maxlength="16"><i>&#xe69e;</i>
+                <p></p>
+            </div>
+            <div><button>取消</button><button>确定</button></div>
+        </div>
     </div>
-    <div class="search"></div>
+    <div id="search" class="iconfont">
+        <div id="search_header">
+            <div id="search_nav">
+                <span class="blue">综合</span>
+                <span>文章</span>
+                <span>课程</span>
+                <span>标签</span>
+                <span>用户</span>
+            </div>
+        </div>
+        <div id="search_essayBody">
+        </div>
+        <div id="search_userBosy">
+        </div>
+    </div>
     <div id="addEssay" class="iconfont">
         <div id="addessay_head">
             <input type="text" id="addessay_header" placeholder="输入文章标题…">
@@ -351,6 +378,7 @@
     <script src="../js/load.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/essay.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/modifyInfor.js"></script>
     <script src="../js/userInfor.js"></script>
     <script src="../js/addEssay.js"></script>

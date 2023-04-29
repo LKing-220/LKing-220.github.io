@@ -150,3 +150,61 @@
 #subImg p {
     transform: scale(.9);
 }
+
+#changePwd_win {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 260px;
+    padding: 30px;
+    border-radius: 4px;
+    background-color: #fff;
+    transform: translateX(-50%) translateY(50%);
+    box-shadow: 0 0 20px 5px #cdcdcd;
+    z-index: 199;
+}
+
+#changePwd_win div {
+    position: relative;
+    flex: 1;
+    line-height: 50px;
+}
+
+#changePwd_win input {
+    width: 260px;
+    height: 30px;
+    padding: 0 10px;
+    margin-left: 20px;
+    border: 1px solid #828282;
+}
+
+#changePwd_win div:nth-child(4) {
+    margin-left: 200px;
+}
+
+#changePwd_win button {
+    margin: 0 8px;
+    padding: 8px 20px;
+    border-radius: 3px;
+    color: #fff;
+    border: 1px solid #1e80ff;
+    background-color: #1e80ff;
+}
+
+#changePwd_win button:hover {
+    background-color: #4495ff;
+}
+
+#changePwd_win i:hover {
+    color: #1e80ff;
+}
+
+#changePwd_win p {
+    position: absolute;
+    left: 118px;
+    bottom: -25px;
+    font-size: 12px;
+    transform: scale(.8);
+}

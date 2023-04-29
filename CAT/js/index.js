@@ -1,11 +1,12 @@
 let userData = new Object;
 let userDatas = new Object;
 let tokenValue = null;
+let userDataPassword = null;
 var temp = localStorage.getItem('userData');
 let userIsLogin = (localStorage.getItem('userIsLogin') == 'true') ? true : false;
 console.log(userIsLogin);
 if (userIsLogin) {
-
+    userDataPassword = localStorage.getItem('userDataPassword');
     userData = JSON.parse(temp);
     console.log(userData);
     tokenValue = userData.data.tokenValue;
@@ -24,7 +25,7 @@ window.addEventListener('load', function() {
     loadSuccessful = document.querySelector('#loadSuccessful');
     inputs = load.querySelectorAll('input');
     inputs[0].value = "zsj1";
-    inputs[1].value = '111111';
+    inputs[1].value = 111111;
     mainFn();
     essayFn();
     //点击登录按钮，转跳到登录界面

@@ -5,6 +5,7 @@ nav {
     height: 60px;
     background-color: #fff;
     z-index: 8;
+    border-bottom: 1px solid #cdcdcd;
 }
 
 .nav {
@@ -197,7 +198,7 @@ nav .right:last-child>div {
     height: 38px;
     border: 1px solid #b1b1b1;
     border-radius: 3px;
-    transition: all 0.2s;
+    transition: all 0.5s;
     overflow: hidden;
     cursor: default;
 }
@@ -234,6 +235,7 @@ nav .right:last-child>div {
     color: #828282;
     font-size: 20px;
     background-color: #e9e9e9;
+    cursor: pointer;
 }
 
 .nav_search:focus-within .right:last-child {
