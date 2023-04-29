@@ -15,16 +15,15 @@ for (var i = 0; i < userHome.length; i++) {
 }
 
 function uIfu() {
-
-    var uIRight = document.querySelector('#userinfor_right')
-    var is = uIRight.querySelectorAll('i');
-    is[0].innerHTML = userDatas.fans;
-    is[1].innerHTML = userDatas.follows;
+    var is = userinforRight.querySelectorAll('i');
+    is[0].innerHTML = userDatas.follows;
+    is[1].innerHTML = userDatas.fans;
 }
-
+let userinforRight = document.querySelector('#userinfor_right');
 
 function otherIfu(id) {
     none();
+    var is = userinforRight.querySelectorAll('i');
     nav.style.display = 'block';
     userinfor.style.display = 'block';
     userinfor.querySelector('#userinfor_other').style.display = 'block';
@@ -39,6 +38,8 @@ function otherIfu(id) {
         }
         uIt.querySelector('h2').innerHTML = data.nickname;
         uIt.querySelector('img').src = data.avator;
+        is[0].innerHTML = data.follows;
+        is[1].innerHTML = data.fans;
     });
     //判断是否关注了该用户
     followJudge(id, obj);
