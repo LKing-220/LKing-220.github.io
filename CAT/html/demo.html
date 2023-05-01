@@ -295,7 +295,7 @@
     </div>
     <div id="addEssay" class="iconfont">
         <div id="addessay_head">
-            <input type="text" id="addessay_header" placeholder="输入文章标题…">
+            <input type="text" id="addessay_header" placeholder="输入文章标题…" class="addInput">
             <div class="right">
                 <em>文章将自动保存至草稿箱</em>
                 <button>草稿箱</button>
@@ -344,13 +344,19 @@
                 <li>&#xe6b7;</li>
             </ul>
         </div>
-        <textarea id="addessay_body"></textarea>
+        <textarea id="addessay_body" class="addInput"></textarea>
         <div id="publish">
             <h4>发布文章</h4>
             <table>
                 <tr>
                     <td><em>*</em>分类：</td>
-                    <td><button class="category">后端</button><button class="category">前端</button><button class="category">Android</button><button class="category">iOs</button><button class="category">人工智能</button><button class="category">开发工具</button>
+                    <td class="addBtns">
+                        <button class="category">后端</button>
+                        <button class="category">前端</button>
+                        <button class="category">Android</button>
+                        <button class="category">iOs</button>
+                        <button class="category">人工智能</button>
+                        <button class="category">开发工具</button>
                         <button class="category">代码人生</button>
                         <button class="category">阅读</button>
                     </td>
@@ -359,14 +365,14 @@
                     <td><em>*</em>文章封面</td>
                     <td>
                         <input type="file" id="publishfile" accept="image/jpeg, image/jpg, image/png">
-                        <label for="publishfile"><span><i>&#xe659;</i>上传封面</span></label>
+                        <label for="publishfile"><img src="https://dummyimage.com/130x73" title="上传图片"  class="addInput" id="publishImg"></label>
                         <p>建议尺寸: 1303*734px</p>
                     </td>
                 </tr>
                 <tr>
                     <td><em>*</em>编辑摘要</td>
                     <td>
-                        <textarea id="abstract"></textarea></td>
+                        <textarea id="abstract" class="addInput"></textarea></td>
                 </tr>
             </table>
             <div id="publish_sure"><button>取消</button><button>确定并发布</button></div>

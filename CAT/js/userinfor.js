@@ -1,20 +1,19 @@
 var userHome = document.querySelectorAll('.userHome');
 for (var i = 0; i < userHome.length; i++) {
     userHome[i].addEventListener('click', function() {
-        //转跳用户主页
-        none();
-        nav.style.display = 'block';
-        userinfor.style.display = 'block';
-        var obj = document.querySelector('#userinfor_top')
-        userinforMy.style.display = 'block';
-        obj.children[2].style.display = '';
-        obj.children[0].src = userDatas.avator;
-        obj.querySelector('h2').innerHTML = userDatas.nickname;
         uIfu();
     })
 }
 
-function uIfu() {
+function uIfu() { //转跳用户主页
+    none();
+    nav.style.display = 'block';
+    userinfor.style.display = 'block';
+    var obj = document.querySelector('#userinfor_top')
+    userinforMy.style.display = 'block';
+    obj.children[2].style.display = '';
+    obj.children[0].src = userDatas.avator;
+    obj.querySelector('h2').innerHTML = userDatas.nickname;
     var is = userinforRight.querySelectorAll('i');
     is[0].innerHTML = userDatas.follows;
     is[1].innerHTML = userDatas.fans;

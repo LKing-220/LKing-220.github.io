@@ -29,7 +29,7 @@ submitUser.addEventListener('click', function() {
     };
     if (num === inform.length) {
         console.log(data);
-        ajax("POST", "userInfo?satoken=" + userData.data.tokenValue, data, 1, function() {
+        ajax("POST", "userInfo?satoken=" + tokenValue, data, 1, function() {
 
             alert(ret.data);
         })

@@ -98,7 +98,7 @@
 
 #essay_userImg img {
     max-width: 100%;
-    max-height: 100%;
+    min-height: 100%;
 }
 
 #essay_userName {
@@ -211,7 +211,7 @@
 
 #essay_publish img {
     max-width: 100%;
-    max-height: 100%;
+    min-height: 100%;
 }
 
 #essay_publish span:nth-child(2) {

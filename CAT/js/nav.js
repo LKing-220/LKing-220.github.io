@@ -33,6 +33,7 @@ function navFn() {
             none();
             nav.style.display = 'none';
             addEssay.style.display = 'block';
+            document.querySelector('#addessay_head').querySelector('img').src = userDatas.avator;
         }
     })
 

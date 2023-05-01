@@ -39,11 +39,11 @@ function essayFn() {
         ajax("GET", "user/id?id=" + id + "", 0, 0, function() {
 
             var datas = ret.data;
-            if (datas.img == null) {
-                datas.img = 'https://dummyimage.com/400x400';
+            if (datas.avator == null) {
+                datas.avator = 'https://dummyimage.com/400x400';
             }
-            essayContent.children[1].children[0].children[0].src = datas.img;
-            essayUser.querySelector('img').src = datas.img;
+            essayContent.children[1].children[0].children[0].src = datas.avator;
+            essayUser.querySelector('img').src = datas.avator;
             essayUser.children[1].innerHTML = datas.nickname;
             //判断是否关注了该用户
             essayFollowJudge(id);
@@ -51,7 +51,13 @@ function essayFn() {
             follow(id)
             none();
             essay.style.display = 'block';
-            essayUser.children[0].addEventListener('click', function() { otherIfu(id) })
+            essayUser.children[0].addEventListener('click', function() {
+                if (id == userDatas.userId) {
+                    uIfu();
+                } else {
+                    otherIfu(id);
+                }
+            })
         });
 
     }
