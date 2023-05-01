@@ -99,6 +99,7 @@ function essayFn() {
     var comments = essayContent.querySelector('#comments');
     //获取评论信息
     function essayComment(num, obj) {
+        comments.innerHTML = '';
         ajax("GET", "comment/first?articleId=" + num + "&page=1&pageSize=20", 0, 0, function() {
             console.log('获取评论');
             var datas = ret.data.records;
@@ -184,6 +185,8 @@ function essayFn() {
     }
 
     //发表评论
+    let lunchCommentSending = false;
+
     function lunchComment(id) {
         var commentContent = userComment.querySelector('#essay_user_comment');
         var userCommentBtn = userComment.querySelector('button');
@@ -194,9 +197,11 @@ function essayFn() {
                 "parentCommentId": -1,
                 "rootCommentId": -1
             };
-            if (commentContent.value) {
+            if (commentContent.value && lunchCommentSending == false) {
+                lunchCommentSending = true;
                 ajax("POST", "comment?satoken=" + tokenValue, data, 1, function() {
                     alert(ret.data);
+                    lunchCommentSending = false;
                     essayCF(id);
                 })
             } else {
