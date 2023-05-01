@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4026173 */
-  src: url('iconfont.woff2?t=1682425643809') format('woff2'),
-       url('iconfont.woff?t=1682425643809') format('woff'),
-       url('iconfont.ttf?t=1682425643809') format('truetype');
+  src: url('iconfont.woff2?t=1682956143720') format('woff2'),
+       url('iconfont.woff?t=1682956143720') format('woff'),
+       url('iconfont.ttf?t=1682956143720') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fenxiang1:before {
+  content: "\e681";
 }
 
 .icon-lianjie2:before {

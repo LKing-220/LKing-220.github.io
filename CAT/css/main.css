@@ -2,6 +2,7 @@ main.w {
     /* display: none; */
     height: 1200px;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 

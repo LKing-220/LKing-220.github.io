@@ -7,11 +7,7 @@ function ajax(pg, str, data, contentType, callback) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.responseType = 'json';
-    if (pg == "POST") {
-        xhr.open("POST", "http://106.52.239.206:8081/" + str);
-    } else if (pg == "GET") {
-        xhr.open("GET", "http://106.52.239.206:8081/" + str)
-    }
+    xhr.open(pg, "http://106.52.239.206:8081/" + str);
     if (contentType) {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(data));

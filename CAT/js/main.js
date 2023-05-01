@@ -16,7 +16,7 @@ function mainFn() {
                     datas[i].img = 'https://dummyimage.com/400x400';
                 }
                 div.index = datas[i].id;
-                div.innerHTML = '<div><img src="' + datas[i].img + '" alt="" class="main_essayImg"><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe618;' + datas[i].shared + '</li></ul>';
+                div.innerHTML = '<div><img src="' + datas[i].img + '" alt="" class="main_essayImg"><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li></ul>';
                 mainEssays.appendChild(div);
                 div.addEventListener('click', function() {
                     if (userIsLogin == false) {

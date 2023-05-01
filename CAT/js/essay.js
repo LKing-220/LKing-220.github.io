@@ -6,7 +6,7 @@ function essayFn() {
     essayContent = essay.querySelector('#essay_content');
     essayUser = essay.querySelector('#essay_user');
     essayLeft = essay.querySelector('#essay_left');
-
+    var userComment = essayContent.querySelector('#user_comment');
     essayCF = function(id) {
         ajax("GET", "article/detail?id=" + id + "", 0, 0, function() {
             console.log(ret);
@@ -14,6 +14,7 @@ function essayFn() {
             if (datas.img == null) {
                 datas.img = 'https://dummyimage.com/400x400';
             }
+            userComment.querySelector('img').src = userDatas.avator;
             //修改文章内容
             essayCont(datas);
             //修改左边框内容
@@ -24,6 +25,8 @@ function essayFn() {
             essayViewed(id);
             //分享操作
             share(id);
+            //发表评论
+            lunchComment(id)
         });
     }
 
@@ -37,7 +40,6 @@ function essayFn() {
     //修改右边用户内容
     function userInfo(id) {
         ajax("GET", "user/id?id=" + id + "", 0, 0, function() {
-
             var datas = ret.data;
             if (datas.avator == null) {
                 datas.avator = 'https://dummyimage.com/400x400';
@@ -91,19 +93,33 @@ function essayFn() {
 
         //收藏操作
         collecte(datas.id)
+
     }
 
+    var comments = essayContent.querySelector('#comments');
     //获取评论信息
     function essayComment(num, obj) {
         ajax("GET", "comment/first?articleId=" + num + "&page=1&pageSize=20", 0, 0, function() {
-            console.log(ret);
-            var datas = ret.data;
-            if (datas.img == null) {
-                datas.img = 'https://dummyimage.com/400x400';
+            console.log('获取评论');
+            var datas = ret.data.records;
+            console.log(datas);
+            obj.innerHTML = datas.length;
+            //渲染评论信息
+            for (var i = 0; i < datas.length; i++) {
+                if (datas[i].userDto.avator == null) {
+                    datas[i].userDto.avator = 'https://dummyimage.com/400x400';
+                }
+                if (datas[i].childs == null) {
+                    datas[i].childs = '点赞';
+                }
+                var div = document.createElement('div');
+                div.innerHTML = '<img src="' + datas[i].userDto.avator + '"><div><span class="essay_commenter">' + datas[i].userDto.nickname + '</span><span class="essay_commentTime">' + datas[i].createTime + '</span></div><p>' + datas[i].content + '</p><ul><li>&#xe66e;<i>点赞</i></li><li>&#xe618;<i>' + datas[i].childs + '</i></li></ul>'
+                comments.appendChild(div);
             }
-            obj.innerHTML = datas.total;
+
         })
     }
+
 
     //判断是否关注了该用户
     var followEle = document.querySelector('#essay_follow').children[0];
@@ -165,6 +181,28 @@ function essayFn() {
                     obj.parentNode.style.backgroundColor = '';
                 }
             })
+    }
+
+    //发表评论
+    function lunchComment(id) {
+        var commentContent = userComment.querySelector('#essay_user_comment');
+        var userCommentBtn = userComment.querySelector('button');
+        userCommentBtn.addEventListener('click', function() {
+            var data = {
+                "articleId": id,
+                "content": commentContent.value,
+                "parentCommentId": -1,
+                "rootCommentId": -1
+            };
+            if (commentContent.value) {
+                ajax("POST", "comment?satoken=" + tokenValue, data, 1, function() {
+                    alert(ret.data);
+                    essayCF(id);
+                })
+            } else {
+                alert('未填写评论内容');
+            }
+        })
     }
 
 }

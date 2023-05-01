@@ -18,64 +18,62 @@
 </head>
 
 <body>
-    <nav>
-        <div class="nav">
-            <div class="logo left">
-                <h1><a class="main" title="稀土掘金">稀土掘金</a></h1>
-            </div>
-            <div class="list left">
-                <span><a class="main">首页</a></span>
-                <span>沸点<i>劳动权益</i></span>
-                <span>课程</span>
-                <span>直播</span>
-                <span>活动</span>
-                <span>竟赛<i>码上报名</i></span>
-                <span>商城</span>
-                <span>APP<i>邀请有礼</i></span>
-                <span>插件</span>
-            </div>
-            <div class="load right" id="load_right">
-                <span>登陆</span><span>注册</span>
-            </div>
-            <div class="right iconfont" id="nav_use">
-                <a href="javascript:;">&#xe604;</a>
-                <img src="" alt="">
-                <ul>
-                    <li class="userHome">个人主页</li>
-                    <li class="modify">修改用户信息</li>
-                    <li>
-                        <a href="demo.html">退出登录</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="vip right"><img src="../img/vip.svg" alt="vip">会员</div>
-            <div class="right">
-                <div>
-                    <div class="nav_search left">
-                        <input type="text" placeholder="搜索稀土掘金">
-                        <div class="right iconfont">&#xe64f;</div>
-                    </div>
-                    <button class="left" id="add">创作者中心</button>
-                    <div class="creater left"></div>
+    <div id="essay" class="w iconfont">
+        <div class="wFixed">
+            <div class="inFixed">
+                <div id="essay_left">
+                    <span class="essay_like">&#xe61c;<i></i></span>
+                    <span><a href="#essay_comment">&#xe634;<i></i></a></span>
+                    <span class="essay_collecte">&#xe86d;<i></i></span>
+                    <span class="essay_share">&#xe633;<i></i></span>
+                    <span>&#xe601;</span>
+                    <span>&#xe68b;</span>
                 </div>
             </div>
         </div>
-    </nav>
-    <div id="search" class="iconfont">
-        <div id="search_header">
-            <div id="search_nav">
-                <span class="blue">综合</span>
-                <span>文章</span>
-                <span>课程</span>
-                <span>标签</span>
-                <span>用户</span>
+        <div id="essay_right">
+            <div id="essay_user" class="otherInfo">
+                <div id="essay_userImg">
+                    <img src="https://dummyimage.com/400x400" alt="">
+                </div>
+                <div id="essay_userName" for="essay_userImg"></div>
+                <div id="essay_follow">
+                    <button>关注</button><button>私信</button>
+                </div>
+                <div id="essay_liked"><em>&#xe61c;</em>获得点赞<i>999</i></div>
+                <div id="essay_viewed"><em>&#xe61d;</em>文章被阅读<i>999</i></div>
             </div>
+            <div id="essay_adv"></div>
         </div>
-        <div id="search_body">
-            <div id="search_bodyNav">
-                <span class="blue">综合排序</span>
-                <span>最新优先</span>
-                <span>最热优先</span>
+        <div id="essay_content">
+            <h1 id="essay_title"></h1>
+            <div id="essay_publish">
+                <span><img src="https://dummyimage.com/400x400" alt=""></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img id="essay_img" src="https://dummyimage.com/400x400"></img>
+            <div id="essay_body"></div>
+            <div id="essay_footer"></div>
+            <div id="essay_comment">
+                <h3>评论</h3>
+                <div>
+                    <img src="https://dummyimage.com/400x400" alt="">
+                    <textarea id="essay_user_comment" placeholder="请输入您的评论"></textarea>
+                </div>
+                <h3>更多评论</h3>
+                <div id="comments">
+                    <div>
+                        <img src="https://dummyimage.com/400x400" alt="">
+                        <div><span class="essay_commenter">123123</span><span class="essay_commentTime">1234324</span></div>
+                        <p>123434214</p>
+                        <ul>
+                            <li>&#xe66e;<i>点赞</i></li>
+                            <li>&#xe618;<i>评论</i></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
