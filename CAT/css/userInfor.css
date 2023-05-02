@@ -114,6 +114,10 @@
     cursor: default;
 }
 
+#userinfor_other button i {
+    margin-right: 10px;
+}
+
 #userinfor_other button:first-child {
     color: #fff;
     background-color: #007fff;
@@ -166,15 +170,170 @@
 
 .blueBottom::after {
     content: '';
+    position: absolute;
     bottom: -9px;
-    left: 7px;
-    width: 18px;
+    left: 50%;
+    width: 60%;
     height: 3px;
     border-radius: 4px;
-    position: absolute;
     background-color: #007fff;
+    transform: translateX(-50%);
 }
 
 #userinfor_list {
     background-color: #fff;
+}
+
+
+/* 文章内容 */
+
+#userinfor_list h3 {
+    height: 48px;
+    line-height: 48px;
+    padding: 0 20px;
+    border-bottom: 1px solid #cdcdcd;
+    font-size: 16px;
+}
+
+.userEssay {
+    position: relative;
+    width: 100%;
+    height: 132px;
+    padding: 15px 20px 0;
+}
+
+.userEssay::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 95%;
+    height: 1px;
+    background-color: #dddddd;
+}
+
+.userEssay:last-child::after {
+    display: none;
+}
+
+.main_essayImg {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    /* width: 120px; */
+    height: 80px;
+}
+
+.userEssay span {
+    padding: 0 10px;
+    color: #585858;
+    font-size: 16px;
+    line-height: 16px;
+    border-left: 1px solid #cdcdcd;
+}
+
+.userEssay .main_writer {
+    padding-left: 0;
+    border: 0;
+}
+
+.userEssay h4 {
+    line-height: 34px;
+}
+
+.userEssay p {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    color: #585858;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.userEssay ul {
+    position: absolute;
+    bottom: 12px;
+    color: #585858;
+    font-size: 15px;
+}
+
+.userEssay li {
+    float: left;
+    margin-right: 20px;
+}
+
+.userEssay li:hover {
+    color: #1e80ff;
+}
+
+
+/* 关注内容 */
+
+#userFollow_list {
+    display: none;
+    background-color: #fff;
+}
+
+#userFollow_nav {
+    border-bottom: 1px solid #cdcdcd;
+    overflow: hidden;
+}
+
+#userFans {
+    display: none;
+}
+
+#userFollow_list h3 {
+    float: left;
+    width: 40%;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+#userFollow_nav ul {
+    float: right;
+    width: 40%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+}
+
+#userFollow_nav li {
+    float: left;
+    margin: 0 10px;
+}
+
+.userFollow_user {
+    position: relative;
+    width: 100%;
+    height: 92px;
+    line-height: 40px;
+    padding: 20px;
+    border-bottom: 1px solid #cdcdcd;
+    overflow: hidden;
+}
+
+.userFollow_userImg {
+    float: left;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    margin-right: 20px;
+}
+
+.userFollow_userName {
+    float: left;
+    width: 60%;
+}
+
+.userFollow_userFollow {
+    position: absolute;
+    top: 55px;
+    left: 105px;
+    height: 12px;
+    line-height: 12px;
+    color: #828282;
+    font-size: 12px;
 }

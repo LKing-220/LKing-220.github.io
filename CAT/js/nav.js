@@ -25,6 +25,8 @@ function navFn() {
         localStorage.setItem('userData', '');
         localStorage.setItem('userIsLogin', false);
     })
+
+    //转跳发布文章内容
     add.addEventListener('click', function() {
         if (userIsLogin == false) {
             console.log('未登录');

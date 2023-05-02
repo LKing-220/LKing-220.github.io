@@ -1,6 +1,9 @@
 ;
 let essayCF = null;
 let isFollow = 1;
+let sending = false;
+let ID = null;
+let followSending = false;
 
 function essayFn() {
     essayContent = essay.querySelector('#essay_content');
@@ -27,6 +30,7 @@ function essayFn() {
             share(id);
             //发表评论
             lunchComment(id)
+            ID = datas.userDto.userId;
         });
     }
 
@@ -38,37 +42,50 @@ function essayFn() {
     }
 
     //修改右边用户内容
-    function userInfo(id) {
-        ajax("GET", "user/id?id=" + id + "", 0, 0, function() {
-            var datas = ret.data;
-            if (datas.avator == null) {
-                datas.avator = 'https://dummyimage.com/400x400';
-            }
-            essayContent.children[1].children[0].children[0].src = datas.avator;
-            essayUser.querySelector('img').src = datas.avator;
-            essayUser.children[1].innerHTML = datas.nickname;
-            //判断是否关注了该用户
-            essayFollowJudge(id);
-            //关注操作
-            follow(id)
-            none();
-            essay.style.display = 'block';
-            essayUser.children[0].addEventListener('click', function() {
-                if (id == userDatas.userId) {
-                    uIfu();
-                } else {
-                    otherIfu(id);
-                }
-            })
-        });
+    let userInfoSending = false;
 
+    function userInfo(id) {
+        if (userInfoSending == false) {
+            userInfoSending = true;
+            ajax("GET", "user/id?id=" + id + "", 0, 0, function() {
+                var datas = ret.data;
+                if (datas.avator == null) {
+                    datas.avator = 'https://dummyimage.com/400x400';
+                }
+                essayContent.children[1].children[0].children[0].src = datas.avator;
+                essayUser.querySelector('img').src = datas.avator;
+                essayUser.children[1].innerHTML = datas.nickname;
+                //判断是否关注了该用户
+                essayFollowJudge(id);
+                //关注操作
+                follow(id, document.querySelector('#essay_follow').children[0]);
+                none();
+                essay.style.display = 'block';
+                essayUser.children[0].addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    if (sending == false) {
+                        sending = true;
+                        if (ID == userDatas.userId) {
+                            uIfu();
+                        } else {
+                            otherIfu(ID);
+                        }
+                    }
+                })
+                userInfoSending = false;
+            });
+        }
     }
 
     //修改文章内容
     function essayCont(datas) {
         essayContent.children[0].innerHTML = datas.title;
         essayContent.children[3].innerHTML = datas.content;
-        essayContent.children[2].src = datas.img;
+        if (checkURL(datas.img)) {
+            essayContent.children[2].src = datas.img;
+        } else {
+            essayContent.children[2].src = '';
+        }
         essayContent.children[1].children[1].innerHTML = datas.userDto.nickname;
         essayContent.children[1].children[2].innerHTML = datas.updateTime;
         essayContent.children[1].children[3].innerHTML = "阅读" + datas.viewed;
@@ -128,33 +145,6 @@ function essayFn() {
     function essayFollowJudge(id) {
         followJudge(id, followEle);
     };
-
-    let followSending = false;
-    //关注操作
-    function follow(id) {
-        var followEle = document.querySelector('#essay_follow').children[0];
-        followEle.addEventListener('click', function() {
-            if (followSending == false) {
-                followSending = true;
-                ajax("POST", "follow?id=" + id + "&isFollow=" + isFollow + "&satoken=" + tokenValue, 0, 0,
-                    function() {
-                        console.log(ret);
-
-                        if (isFollow) {
-                            isFollow = 0;
-                            followEle.innerHTML = '已关注';
-                            followEle.style.backgroundColor = '#cdcdcd';
-                        } else {
-                            isFollow = 1;
-                            followEle.innerHTML = '关注';
-                            followEle.style.backgroundColor = '';
-                        }
-                        followSending = false;
-                    })
-            }
-        })
-
-    }
 
     //判断是否点赞过
     function likeJudge(id, obj) {

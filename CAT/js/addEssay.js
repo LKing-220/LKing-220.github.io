@@ -1,3 +1,4 @@
+var addInputs = document.querySelectorAll('.addInput');
 window.addEventListener('load', function() {
 
     addEssay.style.height = document.documentElement.clientHeight + 'px';
@@ -43,7 +44,6 @@ window.addEventListener('load', function() {
     })
 
     //获取发布文章必需元素
-    var addInputs = addEssay.querySelectorAll('.addInput');
     var addBtns = addEssay.querySelector('.addBtns').querySelectorAll('button');
     var addBtnum = null;
     for (var i = 0; i < addBtns.length; i++) {
@@ -68,25 +68,23 @@ window.addEventListener('load', function() {
     });
     //处理图片并添加都dom中的函数
     var readFile = function(obj) {
-        // 获取input里面的文件组
-        var fileList = obj.files;
+            // 获取input里面的文件组
+            var fileList = obj.files;
 
-        for (var i = 0; i < fileList.length; i++) {
-            var reader = new FileReader();
-            reader.readAsDataURL(fileList[i]);
-            // 当文件读取成功时执行的函数
-            reader.onload = function() {
-                console.log(fileList[0]);
-                upImg(fileList, function() {
-                    publishImg.src = '' + img + '';
-                })
+            for (var i = 0; i < fileList.length; i++) {
+                var reader = new FileReader();
+                reader.readAsDataURL(fileList[i]);
+                // 当文件读取成功时执行的函数
+                reader.onload = function() {
+                    console.log(fileList[0]);
+                    upImg(fileList, function() {
+                        publishImg.src = '' + img + '';
+                    })
+                }
             }
         }
-    }
-
-    // 发布键
+        // 发布键
     btns[1].addEventListener('click', function() {
-
         var num = 0;
         for (var i = 0; i < addInputs.length; i++) {
             if (addInputs[i].value || (addInputs[i].src != 'https://dummyimage.com/130x73' && addInputs[i].src)) {
@@ -98,13 +96,23 @@ window.addEventListener('load', function() {
             "summary": addInputs[3].value,
             "title": addInputs[0].value,
             "typeId": addBtnum + 1,
-            "img": addInputs[2].src
+            "img": addInputs[2].src,
+            "id": updateEssayId
         };
         if (num == 4 && addBtnum != null) {
-            ajax("POST", "/article?satoken=" + tokenValue, data, 1, function() {
-                console.log(ret);
-                success();
-            })
+            if (update) {
+                ajax("POST", "article/update?satoken=" + tokenValue, data, 1, function() {
+                    console.log(ret);
+                    update = false;
+                    updateEssayId = null;
+                    success();
+                })
+            } else {
+                ajax("POST", "article?satoken=" + tokenValue, data, 1, function() {
+                    console.log(ret);
+                    success();
+                })
+            }
         } else if (addInputs[2].src == 'https://dummyimage.com/130x73') {
             alert('请上传文章封面');
         } else if (num < 4) {
@@ -112,7 +120,6 @@ window.addEventListener('load', function() {
         } else {
             alert('选择类型');
         }
-
     })
 
 

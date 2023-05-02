@@ -83,11 +83,25 @@ function acquire() {
 }
 
 
+//判断一个字符串是否是图片
+function checkURL(URL) {
+    var str = URL;
+    //判断URL地址的正则表达式为:http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?
+    //下面的代码中应用了转义字符"\"输出一个字符"/"
+    var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+    var objExp = new RegExp(Expression);
+    if (objExp.test(str) == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 //判断是否关注了该用户
 function followJudge(id, obj) {
     ajax("GET", "follow/or/not?id=" + id + "&satoken=" + tokenValue, 0, 0,
         function() {
-            console.log(id);
             console.log(ret);
             if (ret.data) {
                 isFollow = 0;
@@ -100,3 +114,28 @@ function followJudge(id, obj) {
             }
         })
 };
+
+
+//关注操作
+function follow(id, obj) {
+    obj.addEventListener('click', function() {
+        console.log(213);
+        if (followSending == false) {
+            followSending = true;
+            ajax("POST", "follow?id=" + id + "&isFollow=" + isFollow + "&satoken=" + tokenValue, 0, 0,
+                function() {
+                    console.log(ret);
+                    if (isFollow) {
+                        isFollow = 0;
+                        obj.innerHTML = '已关注';
+                        obj.style.backgroundColor = '#cdcdcd';
+                    } else {
+                        isFollow = 1;
+                        obj.innerHTML = '关注';
+                        obj.style.backgroundColor = '';
+                    }
+                    followSending = false;
+                })
+        }
+    })
+}
