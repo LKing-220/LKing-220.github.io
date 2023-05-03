@@ -1,3 +1,5 @@
+/* 用户信息详情页面 */
+
 #userinfor {
     display: none;
     position: relative;
@@ -5,6 +7,9 @@
     width: 970px;
     margin: 0 auto;
 }
+
+
+/* 用户信息详情右边导航栏 */
 
 #userinfor_right {
     width: 240px;
@@ -52,6 +57,9 @@
 #userinfor_right li i {
     float: right;
 }
+
+
+/* 用户信息详情左边内容 */
 
 #userinfor_blurb {
     position: relative;
@@ -180,7 +188,7 @@
     transform: translateX(-50%);
 }
 
-#userinfor_list {
+.userinfor_list {
     background-color: #fff;
 }
 
@@ -210,10 +218,6 @@
     width: 95%;
     height: 1px;
     background-color: #dddddd;
-}
-
-.userEssay:last-child::after {
-    display: none;
 }
 
 .main_essayImg {
@@ -336,4 +340,13 @@
     line-height: 12px;
     color: #828282;
     font-size: 12px;
+}
+
+#userinfor_moreArticle,
+#userinfor_moreuserFollows {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    text-align: center;
 }

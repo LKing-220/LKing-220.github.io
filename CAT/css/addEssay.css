@@ -1,3 +1,5 @@
+/* 添加文章页面 */
+
 #addEssay {
     display: none;
     width: 100%;
@@ -140,6 +142,9 @@
     resize: none;
 }
 
+
+/* 发布文字框 */
+
 #publish {
     display: none;
     position: absolute;
@@ -233,6 +238,9 @@
 #publish_sure button:last-child:hover {
     background-color: #4896fd;
 }
+
+
+/* 添加文章成功 */
 
 #addEssaySuccessful {
     display: none;

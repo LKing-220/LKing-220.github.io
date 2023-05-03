@@ -1,3 +1,5 @@
+/* 登录页面 */
+
 .bodyHidden {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -91,7 +93,7 @@
 }
 
 
-/* loadSuccessful */
+/* 登陆成功页面 */
 
 #loadSuccessful {
     display: none;

@@ -10,7 +10,7 @@ function otherIfu(id) {
     var obj = document.querySelector('#userinfor_other').querySelector('button');
     //获取用户信息
     ajax("GET", "user/id?id=" + id, 0, 0, function() {
-        console.log(ret);
+        console.log('获取用户信息', ret);
         data = ret.data;
         if (data.avator == null) {
             data.avator = 'https://dummyimage.com/400x400';
@@ -24,6 +24,8 @@ function otherIfu(id) {
     followJudge(id, obj);
 
     //获取某个用户的文章
+    userinforList.innerHTML = '<h3>文章</h3>';
+    otherArticlePage = 1;
     getEssay(id);
 
     //关注操作
@@ -39,16 +41,16 @@ function otherIfu(id) {
 let userinforList = document.querySelector('#userinfor_list');
 let userFollowList = document.querySelector('#userFollow_list');
 let getEssaySending = false;
+let otherArticlePage = 1;
+let tempID = null;
 
 function getEssay(id) {
+    tempID = id;
     if (getEssaySending == false) {
         getEssaySending = true;
-        ajax("GET", "article/of/user?id=" + id + "&page=1&pageSize=20", 0, 0, function() {
-            console.log('获取某个用户的文章');
-            userinforList.innerHTML = '<h3>文章</h3>';
-            console.log(userinforList.innerHTML);
+        ajax("GET", "article/of/user?id=" + id + "&page=" + otherArticlePage + "&pageSize=20", 0, 0, function() {
             var datas = ret.data.records;
-            console.log(datas);
+            console.log('获取某个用户的文章', datas);
             for (var i = 0; i < datas.length; i++) {
                 var div = document.createElement('div');
                 div.className = 'userEssay';
@@ -60,8 +62,14 @@ function getEssay(id) {
                 div.index = datas[i].id;
                 userinforList.appendChild(div);
                 div.addEventListener('click', function() {
-                    essayCF(this.index);
+                    essayID = this.index;
+                    essayCF();
                 })
+            }
+            if (datas.length < 20) {
+                userinforMoreArticle.innerHTML = '已经到底啦';
+            } else {
+                userinforMoreArticle.innerHTML = '点击加载更多文章';
             }
             getEssaySending = false;
             sending = false;
@@ -92,23 +100,36 @@ function uIfu() { //转跳用户主页
     is[1].innerHTML = userDatas.fans;
 
     //获取我的文章
-    getMyEssay()
-
+    userinforList.innerHTML = '<h3>文章</h3>';
+    myArticlePage = 1;
+    getMyEssay();
     //获取关注列表
     followList(userDatas.userId);
     //获取粉丝列表
     fansList(userDatas.userId);
 }
 
+let userinforMoreArticle = document.querySelector('#userinfor_moreArticle');
+userinforMoreArticle.addEventListener('click', function() {
+    if (tempID == userDatas.userId) {
+        myArticlePage++;
+        getMyEssay();
+    } else {
+        otherArticlePage++;
+        getEssay(tempID);
+    }
+})
+
 //获取我的文章
+let myArticlePage = 1;
+
 function getMyEssay() {
+    tempID = userDatas.userId;
     if (getEssaySending == false) {
         getEssaySending = true;
-        ajax("GET", "article/me?satoken=" + tokenValue + "&page=1&pageSize=20", 0, 0, function() {
-            console.log('获取我的文章');
-            userinforList.innerHTML = '<h3>文章</h3>';
+        ajax("GET", "article/me?satoken=" + tokenValue + "&page=" + myArticlePage + "&pageSize=20", 0, 0, function() {
             var datas = ret.data.records;
-            console.log(datas);
+            console.log('获取我的文章', datas);
             for (var i = 0; i < datas.length; i++) {
                 var div = document.createElement('div');
                 div.className = 'userEssay';
@@ -116,17 +137,21 @@ function getMyEssay() {
                 div.index = datas[i].id;
                 userinforList.appendChild(div);
                 div.addEventListener('click', function() {
-                    essayCF(this.index);
+                    essayID = this.index;
+                    essayCF();
                 })
+
+                //删除文章
                 div.querySelector('.deleteEssay').addEventListener('click', function(event) {
                     event.stopPropagation();
                     this.parentNode.parentNode.style.display = 'none';
                     ajax("POST", "article/delete?articleId=" + this.parentNode.parentNode.index, 0, 0, function() {
                         userinforList.innerHTML = '<h3>文章</h3>';
                         alert(ret.data);
-
                     });
                 }, false)
+
+                //修改文章
                 div.querySelector('.updateEssay').addEventListener('click', function(event) {
                     event.stopPropagation();
                     updateArticle(this.parentNode.parentNode.index);
@@ -134,6 +159,11 @@ function getMyEssay() {
                     update = true;
                     console.log(updateEssayId);
                 }, false)
+            }
+            if (datas.length < 20) {
+                userinforMoreArticle.innerHTML = '已经到底啦';
+            } else {
+                userinforMoreArticle.innerHTML = '点击加载更多文章';
             }
             getEssaySending = false;
             sending = false;
@@ -148,7 +178,7 @@ function updateArticle(id) {
     addEssay.style.display = 'block';
     document.querySelector('#addessay_head').querySelector('img').src = userDatas.avator;
     ajax("GET", "article/detail?id=" + id + "", 0, 0, function() {
-        console.log(ret);
+        console.log('修改文章', ret);
         var datas = ret.data;
         addInputs[0].value = datas.title;
         addInputs[1].value = datas.content;
@@ -167,7 +197,7 @@ userInavLis[1].addEventListener('click', function() {
     this.className = 'blueBottom';
     userInavLis[userInavLisNow].className = '';
     userInavLisNow = 1;
-    userinforList.style.display = 'block';
+    userinforList.parentNode.style.display = 'block';
     userFollowList.style.display = 'none';
 })
 
@@ -176,14 +206,14 @@ userInavLis[4].addEventListener('click', function() {
         userInavLis[userInavLisNow].className = '';
         userInavLis[4].className = 'blueBottom';
         userInavLisNow = 4;
-        userinforList.style.display = 'block';
+        userinforList.parentNode.style.display = 'block';
         userFollowList.style.display = 'none';
         if (doTypeSending == false) {
             doTypeSending = true;
             ajax("GET", "article/doToArticle?doType=collect&satoken=" + tokenValue, 0, 0, function() {
                 userinforList.innerHTML = '<h3>收藏集</h3>';
                 var datas = ret.data;
-                console.log(datas);
+                console.log('收藏集', datas);
                 for (var i = 0; i < datas.length; i++) {
                     var div = document.createElement('div');
                     div.className = 'userEssay';
@@ -195,7 +225,8 @@ userInavLis[4].addEventListener('click', function() {
                     div.index = datas[i].id;
                     userinforList.appendChild(div);
                     div.addEventListener('click', function() {
-                        essayCF(this.index);
+                        essayID = this.index;
+                        essayCF();
                         userInavLis[1].className = 'blueBottom';
                         userInavLis[userInavLisNow].className = '';
                         userInavLisNow = 1;
@@ -212,14 +243,14 @@ userInavLis[6].addEventListener('click', function() {
         userInavLis[userInavLisNow].className = '';
         userInavLis[6].className = 'blueBottom';
         userInavLisNow = 6;
-        userinforList.style.display = 'block';
+        userinforList.parentNode.style.display = 'block';
         userFollowList.style.display = 'none';
         if (doTypeSending == false) {
             doTypeSending = true;
             ajax("GET", "article/doToArticle?doType=like&satoken=" + tokenValue, 0, 0, function() {
                 userinforList.innerHTML = '<h3>点赞</h3>';
                 var datas = ret.data;
-                console.log(datas);
+                console.log('点赞', datas);
                 for (var i = 0; i < datas.length; i++) {
                     var div = document.createElement('div');
                     div.className = 'userEssay';
@@ -234,7 +265,8 @@ userInavLis[6].addEventListener('click', function() {
                         userInavLis[1].className = 'blueBottom';
                         userInavLis[userInavLisNow].className = '';
                         userInavLisNow = 1;
-                        essayCF(this.index);
+                        essayID = this.index;
+                        essayCF();
                     })
                 }
                 doTypeSending = false;
@@ -247,7 +279,7 @@ userInavLis[5].addEventListener('click', function() {
     this.className = 'blueBottom';
     userInavLis[userInavLisNow].className = '';
     userInavLisNow = 5;
-    userinforList.style.display = 'none';
+    userinforList.parentNode.style.display = 'none';
     userFollowList.style.display = 'block';
 })
 var userFLis = userFollowList.querySelectorAll('li');

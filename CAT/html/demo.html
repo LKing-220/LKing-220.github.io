@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="../css/userInfor.css">
     <link rel="stylesheet" href="../css/addEssay.css">
     <link rel="stylesheet" href="../css/search.css">
-    <script src="../js/variables.js"></script>
-    <script src="../js/index.js"></script>
 </head>
 
 <body>
+    <!-- 导航栏 -->
     <nav>
         <div class="nav">
+            <!-- logo可以返回主页 -->
             <div class="logo left">
                 <h1><a class="main" title="稀土掘金">稀土掘金</a></h1>
             </div>
@@ -36,6 +36,7 @@
                 <span>APP<i>邀请有礼</i></span>
                 <span>插件</span>
             </div>
+            <!-- 登录按钮 -->
             <div class="load right" id="load_right">
                 <span>登陆</span><span>注册</span>
             </div>
@@ -53,17 +54,21 @@
             <div class="vip right"><img src="../img/vip.svg" alt="vip">会员</div>
             <div class="right">
                 <div>
+                    <!-- 搜索栏 -->
                     <div class="nav_search left">
                         <input type="text" placeholder="搜索稀土掘金">
                         <div class="right iconfont">&#xe64f;</div>
                     </div>
+                    <!-- 发布文章 -->
                     <button class="left" id="add">创作者中心</button>
                     <div class="creater left"></div>
                 </div>
             </div>
         </div>
     </nav>
+    <!-- 首页 -->
     <main class="w iconfont">
+        <!-- 首页左边导航栏 -->
         <div class="wFixed">
             <div class="inFixed">
                 <div id="main_left">
@@ -80,6 +85,7 @@
                 </div>
             </div>
         </div>
+        <!-- 首页右边导航栏 -->
         <div id="main_right">
             <div id="main_time">
                 <h4>晚上好！</h4>
@@ -131,16 +137,19 @@
                 </ul>
             </div>
         </div>
+        <!-- 首页文章链 -->
         <div id="main_middle">
             <div id="main_middleHeader">
                 <span class="span_focus">推荐</span>
                 <span>最新</span>
             </div>
-            <div id="main_middleEssays">
-            </div>
+            <div id="main_middleEssays"></div>
+            <div id="main_moreArticle">点击加载更多文章</div>
         </div>
     </main>
+    <!-- 文章详情页面 -->
     <div id="essay" class="w iconfont">
+        <!-- 文章左边导航栏 -->
         <div class="wFixed">
             <div class="inFixed">
                 <div id="essay_left">
@@ -153,6 +162,7 @@
                 </div>
             </div>
         </div>
+        <!-- 文章右边导航栏 -->
         <div id="essay_right">
             <div id="essay_user" class="otherInfo">
                 <div id="essay_userImg">
@@ -167,6 +177,7 @@
             </div>
             <div id="essay_adv"></div>
         </div>
+        <!-- 文章详情 -->
         <div id="essay_content">
             <h1 id="essay_title"></h1>
             <div id="essay_publish">
@@ -178,6 +189,7 @@
             <img id="essay_img" src=""></img>
             <div id="essay_body"></div>
             <div id="essay_footer"></div>
+            <!-- 文章评论 -->
             <div id="essay_comment">
                 <h3>评论</h3>
                 <div id="user_comment">
@@ -190,16 +202,20 @@
             </div>
         </div>
     </div>
+    <!-- 登录页面 -->
     <div id="load" class="iconfont">
         <div>请输入账号<input type="text" placeholder=""></div>
         <div>请输入密码<input type="password" maxlength="16"><i>&#xe69e;</i></div>
         <div><button>登录</button><button>注册</button></div>
         <em>×</em>
     </div>
+    <!-- 登陆成功页面 -->
     <div id="loadSuccessful">
         登陆成功
     </div>
+    <!-- 用户信息详情页面 -->
     <div id="userinfor" class="iconfont">
+        <!-- 用户信息详情右边导航栏 -->
         <div id="userinfor_right" class="right">
             <div>
                 <span>关注了<br><i></i></span>
@@ -211,6 +227,7 @@
                 <li>加入于<i>0</i></li>
             </ul>
         </div>
+        <!-- 用户信息详情左边内容 -->
         <div id="userinfor_left" class="left">
             <div id="userinfor_blurb">
                 <div id="userinfor_top">
@@ -244,10 +261,13 @@
                 </ul>
                 <em class="right">&#xe60e;</em>
             </div>
-            <div id="userinfor_list">
-                <div id="userEssays">
-                    <h3>文章</h3>
+            <div class="userinfor_list">
+                <div id="userinfor_list">
+                    <div id="userEssays">
+                        <h3>文章</h3>
+                    </div>
                 </div>
+                <div id="userinfor_moreArticle">点击加载更多文章</div>
             </div>
             <div id="userFollow_list">
                 <div id="userFollow_nav">
@@ -262,6 +282,7 @@
             </div>
         </div>
     </div>
+    <!-- 修改我的信息 -->
     <div id="modify_infor" class="iconfont w">
         <div id="infor_return"><span class="userHome"><i>&#xe83d;</i>返回个人主页</span></div>
         <div id="infor_left">
@@ -303,6 +324,7 @@
             <div><button>取消</button><button>确定</button></div>
         </div>
     </div>
+    <!-- 搜索页面 -->
     <div id="search" class="iconfont">
         <div id="search_header">
             <div id="search_nav">
@@ -315,9 +337,10 @@
         </div>
         <div id="search_essayBody">
         </div>
-        <div id="search_userBosy">
-        </div>
+        <div id="search_userBosy"></div>
+        <div id="search_more">点击加载更多</div>
     </div>
+    <!-- 添加文章页面 -->
     <div id="addEssay" class="iconfont">
         <div id="addessay_head">
             <input type="text" id="addessay_header" placeholder="输入文章标题…" class="addInput">
@@ -370,6 +393,7 @@
             </ul>
         </div>
         <textarea id="addessay_body" class="addInput"></textarea>
+        <!-- 发布文字框 -->
         <div id="publish">
             <h4>发布文章</h4>
             <table>
@@ -403,8 +427,10 @@
             <div id="publish_sure"><button>取消</button><button>确定并发布</button></div>
         </div>
     </div>
+    <!-- 添加文章成功 -->
     <div id="addEssaySuccessful">发布成功</div>
     <script src="../js/functions.js"></script>
+    <script src="../js/index.js"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/load.js"></script>
     <script src="../js/main.js"></script>

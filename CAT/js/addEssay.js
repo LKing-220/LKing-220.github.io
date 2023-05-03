@@ -1,8 +1,6 @@
 var addInputs = document.querySelectorAll('.addInput');
 window.addEventListener('load', function() {
-
     addEssay.style.height = document.documentElement.clientHeight + 'px';
-
     var addEHtimer = null;
     //设置文本域的高度
     window.addEventListener('resize', function() {
@@ -23,8 +21,6 @@ window.addEventListener('load', function() {
             addEssay.querySelector('#addessay_head').style.overflow = '';
         }
     }
-
-
 
     //发布表单
     var openPublish = this.document.querySelector('.publish');
@@ -91,6 +87,7 @@ window.addEventListener('load', function() {
                 num++;
             }
         }
+        //获取所需要的内容
         var data = {
             "content": addInputs[1].value,
             "summary": addInputs[3].value,
@@ -102,14 +99,14 @@ window.addEventListener('load', function() {
         if (num == 4 && addBtnum != null) {
             if (update) {
                 ajax("POST", "article/update?satoken=" + tokenValue, data, 1, function() {
-                    console.log(ret);
+                    console.log('修改文章', ret);
                     update = false;
                     updateEssayId = null;
                     success();
                 })
             } else {
                 ajax("POST", "article?satoken=" + tokenValue, data, 1, function() {
-                    console.log(ret);
+                    console.log('发布文章', ret);
                     success();
                 })
             }
@@ -121,9 +118,6 @@ window.addEventListener('load', function() {
             alert('选择类型');
         }
     })
-
-
-
 
     var addEssaySuccessful = document.querySelector('#addEssaySuccessful');
 
@@ -137,6 +131,9 @@ window.addEventListener('load', function() {
                 none();
                 main.style.display = 'block';
                 nav.style.display = 'block';
+                for (var i = 0; i < addInputs.length; i++) {
+                    addInputs[i].value = '';
+                }
             }, 400)
         }
     }

@@ -1,3 +1,5 @@
+/* 文章详情页面 */
+
 #essay {
     display: none;
     width: 1200px;
@@ -6,7 +8,7 @@
 }
 
 
-/* 左边导航栏 */
+/* 文章左边导航栏 */
 
 #essay .inFixed {
     min-width: 1200px;
@@ -70,7 +72,7 @@
 }
 
 
-/* 右边导航栏 */
+/* 文章右边导航栏 */
 
 #essay_right {
     position: absolute;
@@ -180,6 +182,9 @@
     background-size: 100%;
 }
 
+
+/* 文章详情 */
+
 #essay_content {
     position: absolute;
     top: 80px;
@@ -260,6 +265,9 @@
     height: 10px;
     background-color: #fff;
 }
+
+
+/* 文章评论 */
 
 #essay_comment {
     width: 100%;

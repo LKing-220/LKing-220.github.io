@@ -1,9 +1,39 @@
+//获取元素函数
+let body = null;
+let load = null;
+let loadSuccessful = null;
+let essay = null;
+let nav = null;
+let myOrother = null;
+let modifyInfor = null;
+let addEssay = null;
+let userinforeMy = null;
+let search = null;
+let ID = null;
+let essayID = null;
+let isFollow = 1;
+let mainEssays = null;
+let main = null;
+
+body = document.querySelector('body');
+load = document.querySelector('#load');
+main = document.querySelector('main');
+essay = document.querySelector('#essay');
+userinfor = document.querySelector('#userinfor');
+modifyinfor = document.querySelector('#modify_infor');
+
+nav = document.querySelector('nav');
+
+mainEssays = document.querySelector('#main_middleEssays');
+addEssay = document.querySelector('#addEssay');
+userinforMy = document.querySelector('#userinfor_my');
+search = document.querySelector('#search');
+
+
 //封装ajax
 let ret = null;
 
 function ajax(pg, str, data, contentType, callback) {
-
-
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.responseType = 'json';
@@ -48,7 +78,7 @@ function upImg(fileList, callback) {
             }
         }
     });
-
+    console.log('上传图片');
     xhrr.open("POST", "http://106.52.239.206:8081/img/upload");
     xhrr.send(data);
 }
@@ -64,23 +94,6 @@ function none() {
     search.style.display = 'none';
 }
 
-//获取元素函数
-function acquire() {
-
-    userinfor = document.querySelector('#userinfor');
-    modifyinfor = document.querySelector('#modify_infor');
-
-    nav = document.querySelector('nav');
-
-    mainEssays = document.querySelector('#main_middleEssays');
-    main = document.querySelector('main');
-    essay = document.querySelector('#essay');
-
-    addEssay = document.querySelector('#addEssay');
-    userinforMy = document.querySelector('#userinfor_my');
-    search = document.querySelector('#search');
-
-}
 
 
 //判断一个字符串是否是图片
@@ -100,9 +113,10 @@ function checkURL(URL) {
 
 //判断是否关注了该用户
 function followJudge(id, obj) {
+    console.log(id);
     ajax("GET", "follow/or/not?id=" + id + "&satoken=" + tokenValue, 0, 0,
         function() {
-            console.log(ret);
+            console.log('判断是否关注了该用户', ret);
             if (ret.data) {
                 isFollow = 0;
                 obj.innerHTML = '已关注';
@@ -116,15 +130,17 @@ function followJudge(id, obj) {
 };
 
 
+//判断是否在进行关注操作
+let followSending = false;
 //关注操作
 function follow(id, obj) {
     obj.addEventListener('click', function() {
-        console.log(213);
+        console.log(id);
         if (followSending == false) {
             followSending = true;
             ajax("POST", "follow?id=" + id + "&isFollow=" + isFollow + "&satoken=" + tokenValue, 0, 0,
                 function() {
-                    console.log(ret);
+                    console.log('关注操作', ret);
                     if (isFollow) {
                         isFollow = 0;
                         obj.innerHTML = '已关注';

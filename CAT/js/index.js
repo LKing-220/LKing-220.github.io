@@ -1,3 +1,4 @@
+//判断是否登录过
 let userData = new Object;
 let userDatas = new Object;
 let tokenValue = null;
@@ -11,25 +12,20 @@ if (userIsLogin) {
     console.log(userData);
     tokenValue = userData.data.tokenValue;
 } else {
-
     console.log('未登录');
 }
+
+//页面加载完毕后进行的第一个操作
 window.addEventListener('load', function() {
     let loadRight = document.querySelector('#load_right');
-    body = document.querySelector('body');
-    load = document.querySelector('#load');
-    acquire();
     navFn()
-
-
     loadSuccessful = document.querySelector('#loadSuccessful');
     inputs = load.querySelectorAll('input');
-    inputs[0].value = "zsj1";
-    inputs[1].value = 111111;
-    mainFn();
-    essayFn();
+    inputs[0].value = "";
+    inputs[1].value = "";
+    // mainFn();
+    // essayFn();
     //点击登录按钮，转跳到登录界面
-
     loadRight.addEventListener('click', function() {
         if (Object.getOwnPropertyNames(userData).length == 0) {
             loadFn()

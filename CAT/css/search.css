@@ -1,3 +1,5 @@
+/* 搜索页面 */
+
 #search {
     display: none;
 }
@@ -11,7 +13,7 @@
     color: #828282;
     background-color: #fff;
     border-bottom: 1px solid #cdcdcd;
-    z-index: 99;
+    z-index: 1;
 }
 
 #search_nav {
@@ -189,3 +191,14 @@
     border-radius: 2px;
     cursor: pointer;
 } */
+
+#search_more {
+    position: relative;
+    top: 122px;
+    width: 700px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+}

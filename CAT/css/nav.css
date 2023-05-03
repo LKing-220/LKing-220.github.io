@@ -1,3 +1,5 @@
+/* 导航栏 */
+
 nav {
     /* display: none; */
     position: fixed;
@@ -15,6 +17,9 @@ nav {
     margin: 0 auto;
     padding: 0 25px;
 }
+
+
+/* logo可以返回主页 */
 
 .logo {
     width: 100px;
@@ -75,6 +80,9 @@ nav {
     line-height: 18px;
     color: #fff;
 }
+
+
+/* 登录按钮 */
 
 #load_right {
     display: flex;
@@ -141,7 +149,7 @@ nav {
     background-color: #fff;
     box-sizing: border-box;
     box-shadow: 0 0 10px 2px #bdbdbd;
-    z-index: 50;
+    z-index: 99;
 }
 
 #nav_use li {
@@ -193,6 +201,9 @@ nav .right:last-child>div {
     width: 160%;
 }
 
+
+/* 搜索栏 */
+
 .nav_search {
     width: calc(62.5% - 150px);
     height: 38px;
@@ -242,6 +253,9 @@ nav .right:last-child>div {
     color: #4193ff;
     background-color: rgba(30, 128, 255, .1);
 }
+
+
+/* 发布文章 */
 
 .nav button {
     width: 90px;
