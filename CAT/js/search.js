@@ -34,7 +34,18 @@ function searchGet() {
                     div.className = 'search_user';
                     div.innerHTML = '<img src="' + data[i].avator + '" alt="" class="search_userImg"><h3 class="search_userName">' + data[i].nickname + '</h3><p class="search_userFollow">' + data[i].follows + '个关注者</p>'
                     sub.appendChild(div);
-                    div.addEventListener('click', function() { otherIfu(this.index) })
+                    div.addEventListener('click', function() {
+                        if (userIsLogin == false) {
+                            console.log('未登录');
+                            loadFn();
+                        } else {
+                            if (this.index == userDatas.userId) {
+                                uIfu();
+                            } else {
+                                otherIfu(this.index);
+                            }
+                        }
+                    })
                 }
                 searchSending = false;
             })

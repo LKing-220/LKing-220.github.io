@@ -2,6 +2,7 @@ let userinforRight = document.querySelector('#userinfor_right');
 
 function otherIfu(id) {
     none();
+    followID = id;
     var is = userinforRight.querySelectorAll('i');
     nav.style.display = 'block';
     userinfor.style.display = 'block';
@@ -19,17 +20,19 @@ function otherIfu(id) {
         uIt.querySelector('img').src = data.avator;
         is[0].innerHTML = data.follows;
         is[1].innerHTML = data.fans;
+        userInavLis[userInavLisNow].className = '';
+        userInavLis[1].className = 'blueBottom';
+        userInavLisNow = 1;
+        userinforList.parentNode.style.display = 'block';
+        userFollowList.style.display = 'none';
     });
     //判断是否关注了该用户
-    followJudge(id, obj);
+    followJudge(obj);
 
     //获取某个用户的文章
     userinforList.innerHTML = '<h3>文章</h3>';
     otherArticlePage = 1;
     getEssay(id);
-
-    //关注操作
-    follow(id, obj);
 
     //获取关注列表
     followList(id);
@@ -55,7 +58,7 @@ function getEssay(id) {
                 var div = document.createElement('div');
                 div.className = 'userEssay';
                 if (checkURL(datas[i].img)) {
-                    div.innerHTML = '<div><img src="' + datas[i].img + '" alt="" class="main_essayImg"><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li></ul>';
+                    div.innerHTML = '<div><img src="' + datas[i].img + '"class="main_essayImg"><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li></ul>';
                 } else {
                     div.innerHTML = '<div><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li></ul>';
                 }
@@ -98,7 +101,11 @@ function uIfu() { //转跳用户主页
     var is = userinforRight.querySelectorAll('i');
     is[0].innerHTML = userDatas.follows;
     is[1].innerHTML = userDatas.fans;
-
+    userInavLis[userInavLisNow].className = '';
+    userInavLis[1].className = 'blueBottom';
+    userInavLisNow = 1;
+    userinforList.parentNode.style.display = 'block';
+    userFollowList.style.display = 'none';
     //获取我的文章
     userinforList.innerHTML = '<h3>文章</h3>';
     myArticlePage = 1;
@@ -133,7 +140,11 @@ function getMyEssay() {
             for (var i = 0; i < datas.length; i++) {
                 var div = document.createElement('div');
                 div.className = 'userEssay';
-                div.innerHTML = '<div><img src="' + datas[i].img + '" alt="" class="main_essayImg"><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li><li class="deleteEssay">删除文章</li><li class="updateEssay">修改文章</li></ul>';
+                if (checkURL(datas[i].img)) {
+                    div.innerHTML = '<div><img src="' + datas[i].img + '"class="main_essayImg"><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li><li class="deleteEssay">删除文章</li><li class="updateEssay">修改文章</li></ul>';
+                } else {
+                    div.innerHTML = '<div><span class="main_writer">' + datas[i].userDto.nickname + '</span><span class="main_timer">' + datas[i].createTime + '</span><h4>' + datas[i].title + '</h4><p>' + datas[i].summary + '</p></div><ul><li>&#xe8bf;' + datas[i].viewed + '</li><li>&#xe61b;' + datas[i].liked + '</li><li>&#xe681;' + datas[i].shared + '</li><li class="deleteEssay">删除文章</li><li class="updateEssay">修改文章</li></ul>';
+                }
                 div.index = datas[i].id;
                 userinforList.appendChild(div);
                 div.addEventListener('click', function() {
@@ -146,7 +157,6 @@ function getMyEssay() {
                     event.stopPropagation();
                     this.parentNode.parentNode.style.display = 'none';
                     ajax("POST", "article/delete?articleId=" + this.parentNode.parentNode.index, 0, 0, function() {
-                        userinforList.innerHTML = '<h3>文章</h3>';
                         alert(ret.data);
                     });
                 }, false)
@@ -184,7 +194,6 @@ function updateArticle(id) {
         addInputs[1].value = datas.content;
         addInputs[2].src = datas.img;
         addInputs[3].value = datas.summary;
-
     });
 }
 
@@ -194,13 +203,19 @@ let doTypeSending = false;
 var userInavLis = document.querySelector('#userinfor_nav').querySelectorAll('li');
 var userInavLisNow = 1;
 userInavLis[1].addEventListener('click', function() {
-    this.className = 'blueBottom';
     userInavLis[userInavLisNow].className = '';
+    this.className = 'blueBottom';
     userInavLisNow = 1;
     userinforList.parentNode.style.display = 'block';
     userFollowList.style.display = 'none';
+    if (userinforMy.style.display == 'block') {
+        userinforList.innerHTML = '<h3>文章</h3>';
+        myArticlePage = 1;
+        getMyEssay();
+    }
 })
 
+//收藏夹
 userInavLis[4].addEventListener('click', function() {
     if (userinforMy.style.display == 'block') {
         userInavLis[userInavLisNow].className = '';
@@ -238,6 +253,7 @@ userInavLis[4].addEventListener('click', function() {
     }
 })
 
+//点赞
 userInavLis[6].addEventListener('click', function() {
     if (userinforMy.style.display == 'block') {
         userInavLis[userInavLisNow].className = '';
@@ -276,8 +292,8 @@ userInavLis[6].addEventListener('click', function() {
 })
 
 userInavLis[5].addEventListener('click', function() {
-    this.className = 'blueBottom';
     userInavLis[userInavLisNow].className = '';
+    this.className = 'blueBottom';
     userInavLisNow = 5;
     userinforList.parentNode.style.display = 'none';
     userFollowList.style.display = 'block';
@@ -307,16 +323,24 @@ function followList(id) {
             userFollows.innerHTML = '';
             console.log(id + '获取关注列表', ret);
             var data = ret.data;
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].avator == null) {
-                    data[i].avator = 'https://dummyimage.com/400x400';
+            if (data != null) {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].avator == null) {
+                        data[i].avator = 'https://dummyimage.com/400x400';
+                    }
+                    var div = document.createElement('div');
+                    div.index = data[i].userId;
+                    div.className = 'userFollow_user';
+                    div.innerHTML = '<img src="' + data[i].avator + '" class="userFollow_userImg"><h3 class="userFollow_userName">' + data[i].nickname + '</h3><p class="userFollow_userFollow">' + data[i].follows + '个关注者</p>'
+                    userFollows.appendChild(div);
+                    div.addEventListener('click', function() {
+                        if (this.index == userDatas.userId) {
+                            uIfu();
+                        } else {
+                            otherIfu(this.index);
+                        }
+                    })
                 }
-                var div = document.createElement('div');
-                div.index = data[i].userId;
-                div.className = 'userFollow_user';
-                div.innerHTML = '<img src="' + data[i].avator + '" class="userFollow_userImg"><h3 class="userFollow_userName">' + data[i].nickname + '</h3><p class="userFollow_userFollow">' + data[i].follows + '个关注者</p>'
-                userFollows.appendChild(div);
-                div.addEventListener('click', function() { otherIfu(this.index) })
             }
             followListSending = false;
         });
@@ -324,27 +348,35 @@ function followList(id) {
 }
 
 // 获取粉丝列表
-
 let fansListSending = false;
 
 function fansList(id) {
     var userFans = document.querySelector('#userFans');
+    console.log(fansListSending);
     if (fansListSending == false) {
         fansListSending = true;
         ajax("GET", "follow/me/fans?id=" + id, 0, 0, function() {
             userFans.innerHTML = '';
             console.log(id + '获取粉丝列表', ret);
             var data = ret.data;
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].avator == null) {
-                    data[i].avator = 'https://dummyimage.com/400x400';
+            if (data != null) {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].avator == null) {
+                        data[i].avator = 'https://dummyimage.com/400x400';
+                    }
+                    var div = document.createElement('div');
+                    div.index = data[i].userId;
+                    div.className = 'userFollow_user';
+                    div.innerHTML = '<img src="' + data[i].avator + '" class="userFollow_userImg"><h3 class="userFollow_userName">' + data[i].nickname + '</h3><p class="userFollow_userFollow">' + data[i].follows + '个关注者</p>'
+                    userFans.appendChild(div);
+                    div.addEventListener('click', function() {
+                        if (this.index == userDatas.userId) {
+                            uIfu();
+                        } else {
+                            otherIfu(this.index);
+                        }
+                    })
                 }
-                var div = document.createElement('div');
-                div.index = data[i].userId;
-                div.className = 'userFollow_user';
-                div.innerHTML = '<img src="' + data[i].avator + '" class="userFollow_userImg"><h3 class="userFollow_userName">' + data[i].nickname + '</h3><p class="userFollow_userFollow">' + data[i].follows + '个关注者</p>'
-                userFans.appendChild(div);
-                div.addEventListener('click', function() { otherIfu(this.index) })
             }
             fansListSending = false;
         });

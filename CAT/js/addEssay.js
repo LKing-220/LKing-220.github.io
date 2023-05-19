@@ -66,7 +66,6 @@ window.addEventListener('load', function() {
     var readFile = function(obj) {
             // 获取input里面的文件组
             var fileList = obj.files;
-
             for (var i = 0; i < fileList.length; i++) {
                 var reader = new FileReader();
                 reader.readAsDataURL(fileList[i]);
@@ -128,6 +127,9 @@ window.addEventListener('load', function() {
             addEssaySuccessful.style.display = 'block';
             setTimeout(function() {
                 addEssaySuccessful.style.display = 'none';
+                addBtns[addBtnum].style.backgroundColor = '';
+                addBtns[addBtnum].style.color = '';
+                addBtnum = null;
                 none();
                 main.style.display = 'block';
                 nav.style.display = 'block';

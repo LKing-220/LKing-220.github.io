@@ -1,56 +1,40 @@
 //获取元素函数
-let body = null;
-let load = null;
+let body = document.querySelector('body');
+let load = document.querySelector('#load');
+let essay = document.querySelector('#essay');
+let nav = document.querySelector('nav');
+let addEssay = document.querySelector('#addEssay');
+let search = document.querySelector('#search');
+let mainEssays = document.querySelector('#main_middleEssays');
+let main = document.querySelector('main');
+let userinfor = document.querySelector('#userinfor');
+let modifyinfor = document.querySelector('#modify_infor');
+let userinforMy = document.querySelector('#userinfor_my');
 let loadSuccessful = null;
-let essay = null;
-let nav = null;
-let myOrother = null;
-let modifyInfor = null;
-let addEssay = null;
-let userinforeMy = null;
-let search = null;
 let ID = null;
 let essayID = null;
 let isFollow = 1;
-let mainEssays = null;
-let main = null;
-
-body = document.querySelector('body');
-load = document.querySelector('#load');
-main = document.querySelector('main');
-essay = document.querySelector('#essay');
-userinfor = document.querySelector('#userinfor');
-modifyinfor = document.querySelector('#modify_infor');
-
-nav = document.querySelector('nav');
-
-mainEssays = document.querySelector('#main_middleEssays');
-addEssay = document.querySelector('#addEssay');
-userinforMy = document.querySelector('#userinfor_my');
-search = document.querySelector('#search');
-
 
 //封装ajax
 let ret = null;
 
-function ajax(pg, str, data, contentType, callback) {
+function ajax(pg, url, data, contentType, callback) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.responseType = 'json';
-    xhr.open(pg, "http://106.52.239.206:8081/" + str);
+    xhr.open(pg, "http://106.52.239.206:8081/" + url);
     if (contentType) {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(data));
     } else {
-
         xhr.send();
     }
 
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
             if (xhr.status / 100 === 2) {
-                ret = xhr.response;
-                callback && callback();
+                ret = xhr.response; //ret储存返回的数据
+                callback && callback(); //回调函数
             } else {
                 alert('error');
             }
@@ -112,9 +96,9 @@ function checkURL(URL) {
 
 
 //判断是否关注了该用户
-function followJudge(id, obj) {
-    console.log(id);
-    ajax("GET", "follow/or/not?id=" + id + "&satoken=" + tokenValue, 0, 0,
+function followJudge(obj) {
+    console.log(followID);
+    ajax("GET", "follow/or/not?id=" + followID + "&satoken=" + tokenValue, 0, 0,
         function() {
             console.log('判断是否关注了该用户', ret);
             if (ret.data) {
@@ -132,26 +116,32 @@ function followJudge(id, obj) {
 
 //判断是否在进行关注操作
 let followSending = false;
+let followID = null;
 //关注操作
-function follow(id, obj) {
-    obj.addEventListener('click', function() {
-        console.log(id);
-        if (followSending == false) {
-            followSending = true;
-            ajax("POST", "follow?id=" + id + "&isFollow=" + isFollow + "&satoken=" + tokenValue, 0, 0,
-                function() {
-                    console.log('关注操作', ret);
-                    if (isFollow) {
-                        isFollow = 0;
-                        obj.innerHTML = '已关注';
-                        obj.style.backgroundColor = '#cdcdcd';
-                    } else {
-                        isFollow = 1;
-                        obj.innerHTML = '关注';
-                        obj.style.backgroundColor = '';
-                    }
-                    followSending = false;
-                })
+let followBtns = document.querySelectorAll('.follow');
+for (var i = 0; i < followBtns.length; i++) {
+    followBtns[i].index = i;
+    followBtns[i].addEventListener('click', function() {
+        console.log(followID);
+        if (ID == userDatas.userId) {} else {
+            var obj = this;
+            if (followSending == false) {
+                followSending = true;
+                ajax("POST", "follow?id=" + followID + "&isFollow=" + isFollow + "&satoken=" + tokenValue, 0, 0,
+                    function() {
+                        console.log('关注操作', ret);
+                        if (isFollow && ret.data == '关注成功') {
+                            isFollow = 0;
+                            obj.innerHTML = '已关注';
+                            obj.style.backgroundColor = '#cdcdcd';
+                        } else {
+                            isFollow = 1;
+                            obj.innerHTML = '关注';
+                            obj.style.backgroundColor = '';
+                        }
+                        followSending = false;
+                    })
+            }
         }
     })
 }

@@ -119,7 +119,7 @@ changePwd.addEventListener('click', function() {
     //确认修改密码
     btns[1].addEventListener('click', function() {
         if (changePwdSending == false) {
-            if (inputs[2].value == inputs[1].value && inputs[0].value == userDataPassword) {
+            if (inputs[2].value == inputs[1].value && (inputs[0].value == userDataPassword || inputs[0].value == '忘记密码')) {
 
                 changePwdSending = true;
                 inputs[0].parentNode.children[2].innerHTML = '旧密码输入正确';

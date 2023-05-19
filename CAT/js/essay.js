@@ -14,8 +14,9 @@ essayCF = function() {
         console.log(essayID + '获取信息文章', ret);
         var datas = ret.data;
         if (datas.img == null) {
-            datas.img = 'https://dummyimage.com/400x400';
+            datas.img = '';
         }
+        ID = datas.userDto.userId;
         userComment.querySelector('img').src = userDatas.avator;
         //修改文章内容
         essayCont(datas);
@@ -25,11 +26,6 @@ essayCF = function() {
         userInfo(datas.userDto.userId);
         //浏览文章
         essayViewed();
-        //分享操作
-        share();
-        //发表评论
-        lunchComment()
-        ID = datas.userDto.userId;
     });
 }
 
@@ -55,10 +51,14 @@ function userInfo(id) {
             essayContent.children[1].children[0].children[0].src = datas.avator;
             essayUser.querySelector('img').src = datas.avator;
             essayUser.children[1].innerHTML = datas.nickname;
-            //判断是否关注了该用户
-            essayFollowJudge(datas.userId);
-            //关注操作
-            follow(datas.userId, document.querySelector('#essay_follow').children[0]);
+            if (ID == userDatas.userId) {
+                document.querySelector('#essay_follow').children[0].innerHTML = '是自己的哦';
+                document.querySelector('#essay_follow').children[0].style.backgroundColor = '#cdcdcd';
+            } else {
+                //判断是否关注了该用户
+                followID = datas.userId;
+                followJudge(document.querySelector('#essay_follow').children[0]);
+            }
             none();
             essay.style.display = 'block';
             essayUser.children[0].addEventListener('click', function(event) {
@@ -105,11 +105,7 @@ function essayLe(datas) {
     //判断是否收藏
     collecteJudge(is[2]);
 
-    //点赞操作
-    like();
 
-    //收藏操作
-    collecte();
 
 }
 
@@ -136,12 +132,6 @@ function essayComment(obj) {
 
     })
 }
-
-
-//判断是否关注了该用户
-function essayFollowJudge(id) {
-    followJudge(id, document.querySelector('#essay_follow').children[0]);
-};
 
 //判断是否点赞过
 function likeJudge(obj) {
@@ -172,127 +162,123 @@ function collecteJudge(obj) {
 //判断是否在发布评论
 let lunchCommentSending = false;
 //发表评论
-function lunchComment() {
-    console.log(essayID);
-    var commentContent = userComment.querySelector('#essay_user_comment');
-    var userCommentBtn = userComment.querySelector('button');
-    //点击发布按钮
-    userCommentBtn.addEventListener('click', function() {
-        // 获取评论框内容
-        var data = {
-            "articleId": essayID,
-            "content": commentContent.value,
-            "parentCommentId": -1,
-            "rootCommentId": -1
-        };
-        //判断是否为空，跟正在发送请求
-        if (commentContent.value) {
-            if (lunchCommentSending == false) {
-                lunchCommentSending = true;
-                ajax("POST", "comment?satoken=" + tokenValue, data, 1, function() {
-                    console.log('发表评论', ret);
-                    commentContent.value = '';
-                    essayCF();
-                    console.log(essayID);
-                    lunchCommentSending = false;
-                })
-            }
-        } else {
-            alert('未填写评论内容');
-            console.log(commentContent.value);
-            console.log(lunchCommentSending);
+console.log(essayID);
+var commentContent = userComment.querySelector('#essay_user_comment');
+var userCommentBtn = userComment.querySelector('button');
+//点击发布按钮
+userCommentBtn.addEventListener('click', function() {
+    // 获取评论框内容
+    var data = {
+        "articleId": essayID,
+        "content": commentContent.value,
+        "parentCommentId": -1,
+        "rootCommentId": -1
+    };
+    //判断是否为空，跟正在发送请求
+    if (commentContent.value) {
+        if (lunchCommentSending == false) {
+            lunchCommentSending = true;
+            ajax("POST", "comment?satoken=" + tokenValue, data, 1, function() {
+                console.log('发表评论', ret);
+                commentContent.value = '';
+                essayCF();
+                console.log(essayID);
+                lunchCommentSending = false;
+            })
         }
-    })
-}
+    } else {
+        alert('未填写评论内容');
+        console.log(commentContent.value);
+        console.log(lunchCommentSending);
+    }
+})
+
 
 
 //判断是否在进行点赞操作
 let likeSending = false;
 //点赞操作
-function like() {
+var likes = document.querySelectorAll('.essay_like')
+for (var i = 0; i < likes.length; i++) {
+    likes[i].index = i;
+    likes[i].addEventListener('click', function() {
 
-    var likes = document.querySelectorAll('.essay_like')
-    for (var i = 0; i < likes.length; i++) {
-        likes[i].index = i;
-        likes[i].addEventListener('click', function() {
+        likeOk(this);
 
-            likeOk(this);
-
-            function likeOk(e) {
-                if (likeSending == false) {
-                    likeSending = true;
-                    ajax("POST", "doArticle/like?articleId=" + essayID + "&satoken=" + tokenValue, 0, 0,
-                        function() {
-                            console.log('点赞操作', ret);
-                            var j = e.children[0].innerHTML;
-                            if (ret.data == '点赞成功') {
-                                e.children[0].innerHTML = 1 + 1 * j;
-                                e.style.backgroundColor = '#71aeff';
-                            } else {
-                                e.children[0].innerHTML = 1 * j - 1;
-                                e.style.backgroundColor = '';
-                            }
-                            likeSending = false;
-                        })
-                }
-
+        function likeOk(e) {
+            if (likeSending == false) {
+                likeSending = true;
+                ajax("POST", "doArticle/like?articleId=" + essayID + "&satoken=" + tokenValue, 0, 0,
+                    function() {
+                        console.log('点赞操作', ret);
+                        var j = e.children[0].innerHTML;
+                        if (ret.data == '点赞成功') {
+                            e.children[0].innerHTML = 1 + 1 * j;
+                            e.style.backgroundColor = '#71aeff';
+                        } else {
+                            e.children[0].innerHTML = 1 * j - 1;
+                            e.style.backgroundColor = '';
+                        }
+                        likeSending = false;
+                    })
             }
-        })
-    }
+        }
+    })
 }
+
 //判断是否在进行收藏操作
 let collecteSending = false;
 //收藏操作
-function collecte() {
-    var collectes = document.querySelectorAll('.essay_collecte')
-    for (var i = 0; i < collectes.length; i++) {
-        collectes[i].index = i;
-        collectes[i].addEventListener('click', function() {
-            collecteOK(this);
+var collectes = document.querySelectorAll('.essay_collecte')
+for (var i = 0; i < collectes.length; i++) {
+    collectes[i].index = i;
+    collectes[i].addEventListener('click', function() {
+        collecteOK(this);
 
-            function collecteOK(e) {
-                if (collecteSending == false) {
-                    collecteSending = true;
-                    ajax("POST", "doArticle/collect?articleId=" + essayID + "&satoken=" + tokenValue, 0, 0,
-                        function() {
-                            console.log('收藏操作', ret);
-                            var j = e.children[0].innerHTML;
-                            if (ret.data == '收藏成功') {
-                                e.children[0].innerHTML = 1 + 1 * j;
-                                e.style.backgroundColor = '#71aeff';
-                            } else {
-                                e.children[0].innerHTML = 1 * j - 1;
-                                e.style.backgroundColor = '';
-                            }
-                            collecteSending = false;
-                        })
-                }
-
+        function collecteOK(e) {
+            if (collecteSending == false) {
+                collecteSending = true;
+                ajax("POST", "doArticle/collect?articleId=" + essayID + "&satoken=" + tokenValue, 0, 0,
+                    function() {
+                        console.log('收藏操作', ret);
+                        var j = e.children[0].innerHTML;
+                        if (ret.data == '收藏成功') {
+                            e.children[0].innerHTML = 1 + 1 * j;
+                            e.style.backgroundColor = '#71aeff';
+                        } else {
+                            e.children[0].innerHTML = 1 * j - 1;
+                            e.style.backgroundColor = '';
+                        }
+                        collecteSending = false;
+                    })
             }
-        })
-    }
+
+        }
+    })
 }
+
 
 //判断是否在进行分享操作
 let shareSending = false;
 // 分享操作
-function share() {
-    var shares = document.querySelectorAll('.essay_share')
-    for (var i = 0; i < shares.length; i++) {
-        shares[i].index = i;
-        shares[i].addEventListener('click', function() {
-            shareOk(this);
+var shares = document.querySelectorAll('.essay_share');
+for (var i = 0; i < shares.length; i++) {
+    shares[i].index = i;
+    shares[i].addEventListener('click', function() {
+        shareOk(this);
 
-            function shareOk(e) {
-                if (shareSending == false) {
-                    shareSending = true;
-                    ajax("POST", "doArticle/share?articleId=" + essayID + "&satoken=" + tokenValue, 0, 0,
-                        function() {
-                            console.log('分享操作', ret);
-                            shareSending = false;
-                        })
-                }
+        function shareOk() {
+            if (shareSending == false) {
+                shareSending = true;
+                ajax("POST", "doArticle/share?articleId=" + essayID + "&satoken=" + tokenValue, 0, 0,
+                    function() {
+                        console.log('分享操作', ret);
+                        shareSending = false;
+                    })
             }
-        })
-    }
+        }
+    })
 }
+var timmer = setTimeout(function() {
+    IDBOpenDBRequest.value
+}, 500)

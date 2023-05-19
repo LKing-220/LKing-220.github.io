@@ -1,7 +1,7 @@
 let mainArticlePage = 1;
 
 function mainContent() {
-    ajax("GET", "article/list/page?page=" + mainArticlePage + "&pageSize=20", 0, 0, function() {
+    ajax("GET", "article/list/page?page=" + mainArticlePage + "&pageSize=10", 0, 0, function() {
         var datas = ret.data.records;
         console.log('获取文章', datas);
         for (var i = 0; i < datas.length; i++) {
@@ -19,19 +19,19 @@ function mainContent() {
                     console.log('未登录');
                     loadFn();
                 } else {
-                    essayID = this.index
+                    essayID = this.index;
                     essayCF();
                 }
             })
         }
-        if (datas.length < 20) {
+        if (datas.length < 10) {
             mainMoreArticle.innerHTML = '已经到底啦';
         } else {
             mainMoreArticle.innerHTML = '点击加载更多文章';
         }
     });
-
 }
+
 mainContent();
 let mainMoreArticle = document.querySelector('#main_moreArticle');
 mainMoreArticle.addEventListener('click', function() {

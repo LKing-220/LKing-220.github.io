@@ -41,6 +41,7 @@ function loadFn() {
                     console.log('登录操作', userData);
                     userDataPassword = inputs[1].value;
                     userIsLogin = userData.data.isLogin;
+                    // 把我的相关信息储存到本地
                     localStorage.setItem('userDataPassword', userDataPassword)
                     localStorage.setItem('userData', JSON.stringify(userData));
                     localStorage.setItem('userIsLogin', userData.data.isLogin);
