@@ -1,0 +1,389 @@
+/* firstBox :start */
+
+.firstBox {
+    height: 650px;
+    background-color: #000;
+}
+
+.firstBox .w {
+    display: flex;
+    height: 100%;
+}
+
+.firstBox .w div {
+    flex: 1;
+    height: calc(100%-100px);
+    margin: 50px 10px 20px;
+}
+
+.firstBox img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.firstBox h4 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 80px;
+}
+
+.firstBox p {
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.firstBox a {
+    position: relative;
+    line-height: 60px;
+    color: #00bdff;
+    font-size: 15px;
+}
+
+.firstBox a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    right: -20px;
+    border-left: 12px solid #00bdff;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.firstBox a:hover {
+    text-decoration: underline;
+}
+
+.firstBox a:hover::after {
+    right: -25px;
+}
+
+
+/* firstBox :end */
+
+
+/* secondBox :start */
+
+.secondBox {
+    position: relative;
+    height: 600px;
+    margin-top: 60px;
+    color: #2f3132;
+    text-align: center;
+}
+
+.secondBox h2 {
+    line-height: 70px;
+    font-weight: 500;
+    font-size: 34px;
+}
+
+.secondBox p {
+    font-weight: 200;
+    line-height: 40px;
+}
+
+.secondBox .w {
+    width: 1184px;
+    height: 281px;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.secondBox_main {
+    display: flex;
+    width: 3612px;
+    height: 100%;
+}
+
+.secondBox_main div {
+    position: relative;
+    flex: 1;
+    line-height: 60px;
+    margin-left: 20px;
+    color: #fff;
+    font-size: 20px;
+    background: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.secondBox_main div:first-child {
+    margin-left: 0;
+}
+
+.secondBox_main a {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    width: 120px;
+    line-height: 50px;
+    border-radius: 4px;
+    color: #2f3132;
+    font-size: 14px;
+    background-color: #00bdff;
+    transform: translateX(50%);
+}
+
+.secondBox_main div:hover a {
+    display: block;
+}
+
+.secondBox .w em {
+    position: absolute;
+    top: 45%;
+    right: 0px;
+    width: 38px;
+    height: 38px;
+    border-radius: 3px;
+    line-height: 38px;
+    font-size: 20px;
+    background-color: #00bdff;
+    cursor: pointer;
+}
+
+.secondBox .w em:hover {
+    background: #01abe8;
+}
+
+.secondBox .w em:last-child {
+    left: 0px;
+}
+
+.secondBox ul {
+    position: absolute;
+    bottom: 90px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.secondBox ul li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 3px;
+    border-radius: 8px;
+    background-color: #959595;
+    cursor: pointer;
+}
+
+.secondBox ul .liBlack {
+    margin-top: 1px;
+    border: 2px solid #000;
+    background-color: #fff;
+}
+
+
+/* secondBox :end */
+
+.thirdBox {
+    position: relative;
+    height: 530px;
+    background-color: pink;
+    background: url(../img/14.webp) no-repeat;
+    background-size: 100%;
+}
+
+.thirdBox_main {
+    position: absolute;
+    top: 250px;
+    right: 50%;
+    text-align: center;
+    font-size: 12px;
+    transform: translateX(50%);
+}
+
+.thirdBox_main h2 {
+    line-height: 60px;
+    font-weight: 500;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.thirdBox_main button {
+    margin: 20px 5px;
+    padding: 15px 30px;
+    border: 2px solid #00B8FC;
+    border-radius: 3px;
+    color: #2f3132;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #00B8FC;
+    cursor: pointer;
+}
+
+.thirdBox_main button:hover {
+    color: #00B8FC;
+    background-color: transparent;
+}
+
+
+/* thirdBox :end */
+
+
+/* fourthBox :start */
+
+.fourthBox {
+    height: 600px;
+}
+
+.fourthBox .w>a {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #262626;
+}
+
+.fourthBox a:hover {
+    color: #262626;
+    background-color: #00bdff;
+}
+
+.fourthBox ul {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 20px;
+}
+
+.fourthBox ul li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+    border-radius: 10px;
+    background-color: #959595;
+    cursor: pointer;
+}
+
+.fourthBox ul .liBlue {
+    border: 1px solid #000;
+    background-color: #00B8FC;
+    box-shadow: 0px 0px 8px 3px #00bdff;
+}
+
+.fourthBox .w div {
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    width: 435px;
+    color: #959595;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fourthBox .w h4 {
+    margin-top: 15px;
+    color: #262626;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.fourthBox em {
+    line-height: 40px;
+}
+
+.fourthBox .w img {
+    width: 100%;
+    height: 245px;
+}
+
+.fourthBox .w div a {
+    position: absolute;
+    top: 400px;
+    left: 0;
+    padding: 0 15px;
+    border: 2px solid #00bdff;
+    border-radius: 3px;
+    line-height: 40px;
+    color: #262626;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #00bdff;
+}
+
+.fourthBox .w div a:hover {
+    color: #00bdff;
+    background-color: transparent;
+}
+
+
+/* fourthBox :end */
+
+
+/* fifthBox :start */
+
+.fifthBox {
+    height: 500px;
+    background: url(../img/15.webp) no-repeat;
+    background-size: cover;
+}
+
+.fifthBox .left {
+    width: 280px;
+    margin-top: 150px;
+}
+
+.fifthBox a:nth-child(1) {
+    float: left;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #fff;
+    font-size: 13px;
+}
+
+.fifthBox a:nth-child(1):hover {
+    border-bottom: 1px dotted transparent;
+    color: #959595;
+    text-decoration: underline;
+}
+
+.fifthBox h2 {
+    float: left;
+    line-height: 50px;
+    font-size: 44px;
+    font-weight: 400;
+    cursor: default;
+}
+
+.fifthBox p {
+    float: left;
+    margin: 10px 0;
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.fifthBox a:last-child {
+    position: relative;
+    float: left;
+    color: #00B8FC;
+}
+
+.fifthBox a:last-child::after {
+    content: '';
+    position: absolute;
+    right: -18px;
+    bottom: 2px;
+    border-left: 12px solid #00B8FC;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.fifthBox a:last-child:hover {
+    text-decoration: underline;
+}
+
+.fifthBox a:last-child:hover:after {
+    right: -22px;
+}
+
+
+/* fifthBox :end */

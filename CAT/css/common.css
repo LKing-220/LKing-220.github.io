@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../fonts/iconfont.woff2?t=1679561573136') format('woff2'), url('../fonts/iconfont.woff?t=1679561573136') format('woff'), url('../fonts/iconfont.ttf?t=1679561573136') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+    font-family: Microsoft YaHei, Arial, sans-serif;
+    background-color: #f4f4f4;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+em {
+    font-style: normal;
+}
+
+input {
+    outline: none;
+}
+
+.w {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.relative {
+    position: relative;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 14px;
+    font-weight: 200;
+}
